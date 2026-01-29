@@ -13,6 +13,7 @@ services:
     environment:
       - PORT=3000
       - NODE_ENV=development
+      - E2E_DIAGNOSTICS=true
       - REDIS_HOST=redis
       - REDIS_PASSWORD=${REDIS_PASSWORD:-redis_secret_password_change_me}
       - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_secret_password_change_me}@redis:6379
@@ -81,6 +82,8 @@ services:
       dockerfile: services/property-service/Dockerfile
     environment:
       - PORT=3003
+      - PROPERTY_SERVICE_PORT=3003
+      - DATABASE_URL=postgresql://admin:postgres_secret_password_change_me@postgres:5432/real_estate?schema=public
       - REDIS_HOST=redis
       - REDIS_PASSWORD=${REDIS_PASSWORD:-redis_secret_password_change_me}
       - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_secret_password_change_me}@redis:6379
@@ -93,6 +96,8 @@ services:
         condition: service_healthy
       kafka:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
 
   search-service:
     build:
@@ -284,6 +289,7 @@ services:
       dockerfile: services/user-interactions-service/Dockerfile
     environment:
       - PORT=3013
+      - USER_INTERACTIONS_SERVICE_PORT=3013
       - DATABASE_URL=postgresql://admin:postgres_secret_password_change_me@postgres:5432/real_estate?schema=public
     depends_on:
       postgres:
@@ -330,4 +336,5 @@ services:
 
 networks:
   default:
+    external: true
     name: real-estate-network

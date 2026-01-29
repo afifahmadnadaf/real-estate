@@ -18,7 +18,7 @@ const completeUploadSchema = Joi.object({
 
 // ID parameter schema
 const idParamSchema = Joi.object({
-  id: Joi.string().required(),
+  id: Joi.string().hex().length(24).required(),
 });
 
 // List media query schema

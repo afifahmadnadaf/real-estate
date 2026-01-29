@@ -274,7 +274,7 @@ services:
 
 networks:
   default:
-    driver: bridge
+    external: true
     name: real-estate-network
 
 volumes:

@@ -2,7 +2,7 @@
 
 const config = require('../config');
 
-const { getElasticsearchClient } = require('./elasticsearch.service');
+const { getElasticsearchClient, ensureIndex } = require('./elasticsearch.service');
 
 /**
  * Build search query
@@ -146,7 +146,7 @@ function buildSearchQuery(params) {
  */
 async function searchProperties(params) {
   const client = getElasticsearchClient();
-  const indexName = config.search.indexName;
+  const indexName = await ensureIndex();
 
   const { query, sort } = buildSearchQuery(params);
   const limit = Math.min(params.limit || config.search.defaultLimit, config.search.maxLimit);
@@ -173,14 +173,15 @@ async function searchProperties(params) {
     },
   });
 
-  const properties = response.body.hits.hits.map((hit) => ({
+  const responseBody = response.body || response;
+  const properties = responseBody.hits.hits.map((hit) => ({
     ...hit._source,
     score: hit._score,
   }));
 
   return {
     properties,
-    total: response.body.hits.total.value,
+    total: typeof responseBody.hits.total === 'number' ? responseBody.hits.total : responseBody.hits.total.value,
     limit,
     offset,
   };
@@ -192,7 +193,7 @@ async function searchProperties(params) {
 async function mapSearch(params) {
   const { bounds, zoom: _zoom } = params;
   const client = getElasticsearchClient();
-  const indexName = config.search.indexName;
+  const indexName = await ensureIndex();
 
   const filters = [{ term: { status: 'PUBLISHED' } }];
 
@@ -226,7 +227,8 @@ async function mapSearch(params) {
     },
   });
 
-  return response.body.hits.hits.map((hit) => hit._source);
+  const responseBody = response.body || response;
+  return responseBody.hits.hits.map((hit) => hit._source);
 }
 
 /**
@@ -234,7 +236,7 @@ async function mapSearch(params) {
  */
 async function autocomplete(query, limit = 10) {
   const client = getElasticsearchClient();
-  const indexName = config.search.indexName;
+  const indexName = await ensureIndex();
 
   const response = await client.search({
     index: indexName,
@@ -259,7 +261,8 @@ async function autocomplete(query, limit = 10) {
     },
   });
 
-  return response.body.hits.hits.map((hit) => ({
+  const responseBody = response.body || response;
+  return responseBody.hits.hits.map((hit) => ({
     id: hit._source.id,
     title: hit._source.title,
     location: hit._source.location,
@@ -272,7 +275,7 @@ async function autocomplete(query, limit = 10) {
  */
 async function getFilterMetadata(cityId = null) {
   const client = getElasticsearchClient();
-  const indexName = config.search.indexName;
+  const indexName = await ensureIndex();
 
   const filters = [{ term: { status: 'PUBLISHED' } }];
   if (cityId) {
@@ -308,24 +311,25 @@ async function getFilterMetadata(cityId = null) {
     },
   });
 
+  const responseBody = response.body || response;
   return {
-    propertyTypes: response.body.aggregations.propertyTypes.buckets.map((b) => ({
+    propertyTypes: responseBody.aggregations.propertyTypes.buckets.map((b) => ({
       value: b.key,
       count: b.doc_count,
     })),
-    bedrooms: response.body.aggregations.bedrooms.buckets.map((b) => ({
+    bedrooms: responseBody.aggregations.bedrooms.buckets.map((b) => ({
       value: b.key,
       count: b.doc_count,
     })),
     priceRange: {
-      min: response.body.aggregations.priceRange.min,
-      max: response.body.aggregations.priceRange.max,
+      min: responseBody.aggregations.priceRange.min,
+      max: responseBody.aggregations.priceRange.max,
     },
-    localities: response.body.aggregations.localities.buckets.map((b) => ({
+    localities: responseBody.aggregations.localities.buckets.map((b) => ({
       localityId: b.key,
       count: b.doc_count,
     })),
-    furnishing: response.body.aggregations.furnishing.buckets.map((b) => ({
+    furnishing: responseBody.aggregations.furnishing.buckets.map((b) => ({
       value: b.key,
       count: b.doc_count,
     })),

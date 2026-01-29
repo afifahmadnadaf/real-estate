@@ -104,6 +104,9 @@ importers:
 
   packages/events:
     dependencies:
+      '@real-estate/common':
+        specifier: workspace:*
+        version: link:../common
       kafkajs:
         specifier: ^2.2.4
         version: 2.2.4
@@ -120,6 +123,12 @@ importers:
 
   packages/smoke-tests:
     devDependencies:
+      '@real-estate/common':
+        specifier: workspace:*
+        version: link:../common
+      '@real-estate/db-models':
+        specifier: workspace:*
+        version: link:../db-models
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@20.19.30)
@@ -209,9 +218,6 @@ importers:
       '@real-estate/common':
         specifier: workspace:*
         version: link:../../packages/common
-      '@real-estate/db-models':
-        specifier: workspace:*
-        version: link:../../packages/db-models
       compression:
         specifier: ^1.7.4
         version: 1.8.1
@@ -307,6 +313,12 @@ importers:
       supertest:
         specifier: ^6.3.3
         version: 6.3.4
+
+  services/fake-payments:
+    dependencies:
+      express:
+        specifier: ^4.18.2
+        version: 4.22.1
 
   services/geo-service:
     dependencies:

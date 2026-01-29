@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const { createProxyMiddleware, fixRequestBody } = require('http-proxy-middleware');
 
 const config = require('../config');
 const { authMiddleware, optionalAuth } = require('../middleware/auth');
@@ -37,6 +37,8 @@ function createServiceProxy(target, options = {}) {
           proxyReq.setHeader('X-Org-ID', req.user.orgId);
         }
       }
+
+      fixRequestBody(proxyReq, req);
     },
     onError: (err, req, res) => {
       logger.error({ error: err.message, target: options.target }, 'Proxy error');

@@ -110,8 +110,6 @@ async function verifyOtp(app, identifier, identifierType, otp, purpose) {
   return true;
 }
 
-const twilio = require('twilio');
-const nodemailer = require('nodemailer');
 const { createLogger } = require('@real-estate/common');
 
 const logger = createLogger({ service: 'user-service' });
@@ -122,7 +120,12 @@ let mailTransporter = null;
 function getTwilioClient() {
   if (twilioClient) return twilioClient;
   if (config.sms.apiKey && config.sms.apiSecret) {
-    twilioClient = twilio(config.sms.apiKey, config.sms.apiSecret);
+    try {
+      const twilio = require('twilio');
+      twilioClient = twilio(config.sms.apiKey, config.sms.apiSecret);
+    } catch {
+      return null;
+    }
   }
   return twilioClient;
 }
@@ -130,15 +133,20 @@ function getTwilioClient() {
 function getMailTransporter() {
   if (mailTransporter) return mailTransporter;
   if (config.sms.provider === 'sendgrid' || process.env.EMAIL_HOST) {
-     mailTransporter = nodemailer.createTransport({
-       host: process.env.EMAIL_HOST,
-       port: parseInt(process.env.EMAIL_PORT || '587'),
-       secure: process.env.EMAIL_SECURE === 'true',
-       auth: {
-         user: process.env.EMAIL_USER,
-         pass: process.env.EMAIL_PASS
-       }
-     });
+    try {
+      const nodemailer = require('nodemailer');
+      mailTransporter = nodemailer.createTransport({
+        host: process.env.EMAIL_HOST,
+        port: parseInt(process.env.EMAIL_PORT || '587'),
+        secure: process.env.EMAIL_SECURE === 'true',
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      });
+    } catch {
+      return null;
+    }
   }
   return mailTransporter;
 }

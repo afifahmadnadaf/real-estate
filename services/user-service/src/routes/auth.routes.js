@@ -8,6 +8,29 @@ const authValidator = require('../validators/auth.validator');
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    data: {
+      endpoints: [
+        // 'GET /v1/auth/public-keys',
+        // 'POST /v1/auth/otp/request',
+        // 'POST /v1/auth/otp/verify',
+        // 'POST /v1/auth/password/login',
+        // 'POST /v1/auth/password/reset/request',
+        // 'POST /v1/auth/password/reset/confirm',
+        // 'POST /v1/auth/refresh',
+        // 'POST /v1/auth/logout',
+        // 'GET /v1/auth/sessions',
+        // 'DELETE /v1/auth/sessions/:sessionId',
+        // 'POST /v1/auth/mfa/enable',
+        // 'POST /v1/auth/mfa/verify',
+        // 'POST /v1/auth/mfa/disable',
+      ],
+    },
+  });
+});
+
 router.get('/public-keys', authController.getPublicKeys);
 
 // OTP endpoints

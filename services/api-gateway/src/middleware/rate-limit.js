@@ -79,8 +79,10 @@ const authRateLimiter = createRateLimiter({
   max: config.rateLimit.authMaxRequests,
   message: 'Too many authentication attempts, please try again later',
   keyGenerator: (req) => {
-    const identifier = req.body?.phone || req.body?.email || req.ip;
-    return `auth:${identifier}`;
+    const identifier =
+      req.body?.identifier || req.body?.phone || req.body?.email || req.ip || 'unknown';
+    const identifierType = req.body?.identifierType || 'unknown';
+    return `auth:${identifierType}:${identifier}`;
   },
 });
 

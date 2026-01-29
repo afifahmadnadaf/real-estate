@@ -19,6 +19,7 @@ const { authMiddleware: _authMiddleware } = require('./middleware/auth');
 const { rateLimiter } = require('./middleware/rate-limit');
 const routes = require('./routes');
 const internalRoutes = require('./routes/internal.routes');
+const diagnosticsRoutes = require('./routes/diagnostics.routes');
 
 const logger = createLogger({ service: 'api-gateway' });
 
@@ -131,6 +132,10 @@ app.get('/ready', async (req, res) => {
 
 // Metrics endpoint (for Prometheus)
 app.get('/metrics', metricsHandler());
+
+if (process.env.E2E_DIAGNOSTICS === 'true') {
+  app.use('/__e2e', diagnosticsRoutes);
+}
 
 app.use('/internal/v1', internalRoutes);
 
