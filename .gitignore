@@ -1,0 +1,79 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Build outputs
+dist/
+build/
+coverage/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Docker volumes (local dev)
+docker/data/
+docker/volumes/
+
+# Prisma
+packages/db-models/src/postgres/prisma/migrations/*.sql.bak
+
+# Generated files
+*.generated.js
+*.generated.json
+
+# Certificates and keys (keep examples)
+*.pem
+*.key
+!*.example.pem
+!*.example.key
+keys/
+certs/
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+.temp/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Debug
+.debug/
+
+# Package manager locks (we use pnpm)
+package-lock.json
+yarn.lock
+
+# Terraform state (if used)
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Kubernetes secrets
+**/k8s/secrets/
+

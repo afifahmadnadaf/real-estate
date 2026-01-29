@@ -1,0 +1,14 @@
+{
+  "name": "@real-estate/smoke-tests",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@real-estate/common": "workspace:*",
+    "@real-estate/db-models": "workspace:*",
+    "jest": "^29.7.0"
+  }
+}

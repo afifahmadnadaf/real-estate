@@ -1,0 +1,37 @@
+{
+  "name": "@real-estate/common",
+  "version": "1.0.0",
+  "description": "Shared utilities, middleware, and types for Real Estate Platform",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest",
+    "test:unit": "jest --testPathPattern=unit",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix"
+  },
+  "dependencies": {
+    "@real-estate/db-models": "workspace:*",
+    "bcrypt": "^5.1.1",
+    "helmet": "^7.1.0",
+    "joi": "^17.12.0",
+    "jsonwebtoken": "^9.0.2",
+    "nanoid": "^3.3.7",
+    "pino": "^8.17.2",
+    "pino-pretty": "^10.3.1",
+    "slugify": "^1.6.6",
+    "uuid": "^9.0.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "peerDependencies": {
+    "express": "^4.18.0"
+  },
+  "keywords": ["real-estate", "common", "utilities", "middleware"],
+  "author": "Real Estate Team",
+  "license": "UNLICENSED"
+}
+

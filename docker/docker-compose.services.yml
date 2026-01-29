@@ -1,0 +1,333 @@
+version: '3.8'
+
+services:
+  # ==========================================
+  # Core Services
+  # ==========================================
+  api-gateway:
+    build:
+      context: ../
+      dockerfile: services/api-gateway/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+      - REDIS_HOST=redis
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-redis_secret_password_change_me}
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_secret_password_change_me}@redis:6379
+      - USER_SERVICE_URL=http://user-service:3001
+      - ORG_SERVICE_URL=http://org-service:3002
+      - PROPERTY_SERVICE_URL=http://property-service:3003
+      - SEARCH_SERVICE_URL=http://search-service:3004
+      - MEDIA_SERVICE_URL=http://media-service:3005
+      - LEAD_SERVICE_URL=http://lead-service:3006
+      - MODERATION_SERVICE_URL=http://moderation-service:3007
+      - BILLING_SERVICE_URL=http://billing-service:3008
+      - NOTIFICATION_SERVICE_URL=http://notification-service:3009
+      - GEO_SERVICE_URL=http://geo-service:3010
+      - ANALYTICS_SERVICE_URL=http://analytics-service:3011
+      - ADMIN_SERVICE_URL=http://admin-service:3012
+      - USER_INTERACTIONS_SERVICE_URL=http://user-interactions-service:3013
+    depends_on:
+      redis:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+      user-service:
+        condition: service_started
+
+  user-service:
+    build:
+      context: ../
+      dockerfile: services/user-service/Dockerfile
+    environment:
+      - PORT=3001
+      - REDIS_HOST=redis
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-redis_secret_password_change_me}
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_secret_password_change_me}@redis:6379
+      - KAFKA_BROKERS=kafka:29092
+      - JWT_SECRET=dev_secret_key_change_in_production
+      - DATABASE_URL=postgresql://admin:postgres_secret_password_change_me@postgres:5432/real_estate?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  org-service:
+    build:
+      context: ../
+      dockerfile: services/org-service/Dockerfile
+    environment:
+      - PORT=3002
+      - KAFKA_BROKERS=kafka:29092
+      - DATABASE_URL=postgresql://admin:postgres_secret_password_change_me@postgres:5432/real_estate?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  property-service:
+    build:
+      context: ../
+      dockerfile: services/property-service/Dockerfile
+    environment:
+      - PORT=3003
+      - REDIS_HOST=redis
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-redis_secret_password_change_me}
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_secret_password_change_me}@redis:6379
+      - KAFKA_BROKERS=kafka:29092
+      - MONGO_URL=mongodb://admin:${MONGO_PASSWORD:-mongo_secret_password_change_me}@mongodb:27017/real_estate_properties?authSource=admin
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+
+  search-service:
+    build:
+      context: ../
+      dockerfile: services/search-service/Dockerfile
+    environment:
+      - PORT=3004
+      - ELASTICSEARCH_HOST=http://elasticsearch:9200
+      - REDIS_HOST=redis
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-redis_secret_password_change_me}
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_secret_password_change_me}@redis:6379
+      - DATABASE_URL=postgresql://admin:postgres_secret_password_change_me@postgres:5432/real_estate?schema=public
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  media-service:
+    build:
+      context: ../
+      dockerfile: services/media-service/Dockerfile
+    environment:
+      - PORT=3005
+      - S3_ENDPOINT=http://minio:9000
+      - S3_BUCKET=real-estate-media
+      - S3_ACCESS_KEY=${S3_ACCESS_KEY:-minio_access_key_change_me}
+      - S3_SECRET_KEY=${S3_SECRET_KEY:-minio_secret_key_change_me}
+      - CDN_BASE_URL=http://localhost:8080/real-estate-media
+      - KAFKA_BROKERS=kafka:29092
+      - MONGO_URL=mongodb://admin:${MONGO_PASSWORD:-mongo_secret_password_change_me}@mongodb:27017/real_estate_media?authSource=admin
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
+      kafka:
+        condition: service_healthy
+
+  lead-service:
+    build:
+      context: ../
+      dockerfile: services/lead-service/Dockerfile
+    environment:
+      - PORT=3006
+      - KAFKA_BROKERS=kafka:29092
+      - DATABASE_URL=postgresql://admin:postgres_secret_password_change_me@postgres:5432/real_estate?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  moderation-service:
+    build:
+      context: ../
+      dockerfile: services/moderation-service/Dockerfile
+    environment:
+      - PORT=3007
+      - REDIS_HOST=redis
+      - KAFKA_BROKERS=kafka:29092
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-redis_secret_password_change_me}
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_secret_password_change_me}@redis:6379
+      - DATABASE_URL=postgresql://admin:postgres_secret_password_change_me@postgres:5432/real_estate?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  billing-service:
+    build:
+      context: ../
+      dockerfile: services/billing-service/Dockerfile
+    environment:
+      - PORT=3008
+      - KAFKA_BROKERS=kafka:29092
+      - PAYMENT_PROVIDER=local
+      - LOCAL_PAYMENTS_URL=http://fake-payments:3099
+      - RAZORPAY_WEBHOOK_SECRET=${RAZORPAY_WEBHOOK_SECRET:-local_razorpay_webhook_secret}
+      - S3_ENDPOINT=http://minio:9000
+      - S3_INVOICE_BUCKET=real-estate-invoices
+      - AWS_ACCESS_KEY_ID=${S3_ACCESS_KEY:-minio_access_key_change_me}
+      - AWS_SECRET_ACCESS_KEY=${S3_SECRET_KEY:-minio_secret_key_change_me}
+      - S3_FORCE_PATH_STYLE=true
+      - CDN_BASE_URL=http://localhost:8080/real-estate-invoices
+      - DATABASE_URL=postgresql://admin:postgres_secret_password_change_me@postgres:5432/real_estate?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
+      migrate:
+        condition: service_completed_successfully
+
+  notification-service:
+    build:
+      context: ../
+      dockerfile: services/notification-service/Dockerfile
+    environment:
+      - PORT=3009
+      - REDIS_HOST=redis
+      - KAFKA_BROKERS=kafka:29092
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-redis_secret_password_change_me}
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_secret_password_change_me}@redis:6379
+      - DATABASE_URL=postgresql://admin:postgres_secret_password_change_me@postgres:5432/real_estate?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  geo-service:
+    build:
+      context: ../
+      dockerfile: services/geo-service/Dockerfile
+    environment:
+      - PORT=3010
+      - REDIS_HOST=redis
+      - GEOCODING_PROVIDER=mock
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-redis_secret_password_change_me}
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_secret_password_change_me}@redis:6379
+      - DATABASE_URL=postgresql://admin:postgres_secret_password_change_me@postgres:5432/real_estate?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  analytics-service:
+    build:
+      context: ../
+      dockerfile: services/analytics-service/Dockerfile
+    environment:
+      - PORT=3011
+      - KAFKA_BROKERS=kafka:29092
+      - REDIS_HOST=redis
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-redis_secret_password_change_me}
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_secret_password_change_me}@redis:6379
+      - DATABASE_URL=postgresql://admin:postgres_secret_password_change_me@postgres:5432/real_estate?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  admin-service:
+    build:
+      context: ../
+      dockerfile: services/admin-service/Dockerfile
+    environment:
+      - PORT=3012
+      - DATABASE_URL=postgresql://admin:postgres_secret_password_change_me@postgres:5432/real_estate?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  user-interactions-service:
+    build:
+      context: ../
+      dockerfile: services/user-interactions-service/Dockerfile
+    environment:
+      - PORT=3013
+      - DATABASE_URL=postgresql://admin:postgres_secret_password_change_me@postgres:5432/real_estate?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  # ==========================================
+  # Workers
+  # ==========================================
+  notification-worker:
+    build:
+      context: ../
+      dockerfile: workers/notification-worker/Dockerfile
+    environment:
+      - DATABASE_URL=postgresql://admin:postgres_secret_password_change_me@postgres:5432/real_estate?schema=public
+      - KAFKA_BROKERS=kafka:29092
+      - SMS_PROVIDER=dummy
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  media-processor:
+    build:
+      context: ../
+      dockerfile: workers/media-processor/Dockerfile
+    environment:
+      - KAFKA_BROKERS=kafka:29092
+      - S3_ENDPOINT=http://minio:9000
+      - S3_BUCKET=real-estate-media
+      - S3_ACCESS_KEY=${S3_ACCESS_KEY:-minio_access_key_change_me}
+      - S3_SECRET_KEY=${S3_SECRET_KEY:-minio_secret_key_change_me}
+    depends_on:
+      kafka:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
+
+networks:
+  default:
+    name: real-estate-network

@@ -1,0 +1,8 @@
+packages:
+  # Shared packages
+  - 'packages/*'
+  # Microservices
+  - 'services/*'
+  # Background workers
+  - 'workers/*'
+

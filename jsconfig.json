@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@real-estate/common": ["packages/common/src"],
+      "@real-estate/common/*": ["packages/common/src/*"],
+      "@real-estate/events": ["packages/events/src"],
+      "@real-estate/events/*": ["packages/events/src/*"],
+      "@real-estate/db-models": ["packages/db-models/src"],
+      "@real-estate/db-models/*": ["packages/db-models/src/*"],
+      "@real-estate/api-client": ["packages/api-client/src"],
+      "@real-estate/api-client/*": ["packages/api-client/src/*"]
+    },
+    "checkJs": true,
+    "strict": false,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "packages/**/*.js",
+    "services/**/*.js",
+    "workers/**/*.js",
+    "scripts/**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules",
+    "**/dist",
+    "**/build"
+  ]
+}
+

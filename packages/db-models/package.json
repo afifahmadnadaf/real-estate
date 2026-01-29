@@ -1,0 +1,36 @@
+{
+  "name": "@real-estate/db-models",
+  "version": "1.0.0",
+  "description": "Database models and schemas for Real Estate Platform",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "prisma:generate": "prisma generate --schema=src/postgres/prisma/schema.prisma",
+    "prisma:studio": "prisma studio --schema=src/postgres/prisma/schema.prisma",
+    "migrate": "prisma migrate deploy --schema=src/postgres/prisma/schema.prisma",
+    "migrate:dev": "prisma migrate dev --schema=src/postgres/prisma/schema.prisma",
+    "migrate:reset": "prisma migrate reset --schema=src/postgres/prisma/schema.prisma --force",
+    "db:push": "prisma db push --schema=src/postgres/prisma/schema.prisma",
+    "test": "jest --passWithNoTests",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.8.0",
+    "ioredis": "^5.3.2",
+    "mongoose": "^8.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "prisma": "^5.8.0"
+  },
+  "keywords": [
+    "real-estate",
+    "database",
+    "prisma",
+    "mongoose",
+    "models"
+  ],
+  "author": "Real Estate Team",
+  "license": "UNLICENSED"
+}

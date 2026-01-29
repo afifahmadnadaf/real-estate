@@ -1,0 +1,28 @@
+# Base image
+FROM node:20-alpine AS base
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
+# Builder stage
+FROM base AS builder
+WORKDIR /app
+COPY . .
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN pnpm --filter {SERVICE_NAME} build
+RUN pnpm --filter {SERVICE_NAME} deploy --prod /prod/{SERVICE_NAME}
+
+# Final stage
+FROM base AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+
+# Copy built application from builder
+COPY --from=builder /prod/{SERVICE_NAME} .
+
+# Copy config if exists
+# COPY --from=builder /app/services/{SERVICE_NAME}/config ./config
+
+USER node
+
+CMD ["node", "src/index.js"]

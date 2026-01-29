@@ -1,0 +1,131 @@
+'use strict';
+
+/**
+ * Application limits and constraints
+ */
+module.exports = {
+  // Pagination
+  PAGINATION: {
+    DEFAULT_LIMIT: 20,
+    MAX_LIMIT: 100,
+    ADMIN_MAX_LIMIT: 200,
+    SEARCH_MAX_LIMIT: 50,
+  },
+
+  // File uploads
+  FILE: {
+    MAX_IMAGE_SIZE_MB: 10,
+    MAX_VIDEO_SIZE_MB: 100,
+    MAX_DOCUMENT_SIZE_MB: 10,
+    MAX_BROCHURE_SIZE_MB: 20,
+    MAX_LOGO_SIZE_MB: 2,
+    MAX_IMAGES_PER_PROPERTY: 20,
+    MAX_VIDEOS_PER_PROPERTY: 3,
+    MAX_FLOOR_PLANS: 10,
+    MAX_DOCUMENTS: 10,
+  },
+
+  // Rate limiting
+  RATE_LIMIT: {
+    DEFAULT_WINDOW_MS: 60 * 1000, // 1 minute
+    DEFAULT_MAX_REQUESTS: 100,
+    AUTH_WINDOW_MS: 60 * 60 * 1000, // 1 hour
+    AUTH_MAX_REQUESTS: 10,
+    OTP_PER_HOUR: 5,
+    SEARCH_MAX_REQUESTS: 300,
+    LEAD_PER_HOUR: 10,
+    MEDIA_UPLOAD_PER_HOUR: 100,
+  },
+
+  // OTP
+  OTP: {
+    LENGTH: 6,
+    EXPIRY_MINUTES: 10,
+    MAX_ATTEMPTS: 5,
+    RATE_LIMIT_PER_HOUR: 5,
+  },
+
+  // JWT
+  JWT: {
+    ACCESS_TOKEN_EXPIRY: '15m',
+    REFRESH_TOKEN_EXPIRY: '30d',
+    SESSION_MAX_AGE_DAYS: 30,
+    MAX_SESSIONS_PER_USER: 5,
+  },
+
+  // Content
+  CONTENT: {
+    TITLE_MIN_LENGTH: 10,
+    TITLE_MAX_LENGTH: 200,
+    DESCRIPTION_MIN_LENGTH: 50,
+    DESCRIPTION_MAX_LENGTH: 5000,
+    SHORT_DESCRIPTION_MAX_LENGTH: 500,
+    NAME_MIN_LENGTH: 2,
+    NAME_MAX_LENGTH: 100,
+    SLUG_MAX_LENGTH: 250,
+  },
+
+  // Property
+  PROPERTY: {
+    MIN_PRICE: 1000,
+    MAX_PRICE: 1000000000000, // 1000 crore
+    MIN_AREA_SQFT: 50,
+    MAX_AREA_SQFT: 10000000,
+    MAX_BEDROOMS: 20,
+    MAX_BATHROOMS: 20,
+    MAX_BALCONIES: 10,
+    MAX_FLOORS: 200,
+    MAX_PARKING_SPOTS: 20,
+    LISTING_EXPIRY_DAYS: 90,
+    MAX_REFRESHES_PER_MONTH: 5,
+  },
+
+  // Organization
+  ORG: {
+    MAX_MEMBERS: 100,
+    MAX_TEAMS: 20,
+    MAX_KYC_DOCUMENTS: 10,
+    INVITE_EXPIRY_DAYS: 7,
+  },
+
+  // Lead
+  LEAD: {
+    MAX_NOTES_PER_LEAD: 100,
+    MESSAGE_MAX_LENGTH: 1000,
+    MAX_LEADS_PER_DAY_PER_USER: 50,
+  },
+
+  // Search
+  SEARCH: {
+    MAX_LOCALITIES_FILTER: 20,
+    MAX_AMENITIES_FILTER: 30,
+    AUTOCOMPLETE_MIN_CHARS: 2,
+    AUTOCOMPLETE_MAX_RESULTS: 10,
+  },
+
+  // Cache TTL (in seconds)
+  CACHE_TTL: {
+    PROPERTY_DETAIL: 300, // 5 minutes
+    SEARCH_FILTERS: 86400, // 24 hours
+    GEO_DATA: 86400, // 24 hours
+    USER_SESSION: 900, // 15 minutes
+    RATE_LIMIT: 60, // 1 minute
+    SEO_PAGES: 3600, // 1 hour
+  },
+
+  // Timeouts (in milliseconds)
+  TIMEOUT: {
+    API_REQUEST: 30000, // 30 seconds
+    DATABASE_QUERY: 10000, // 10 seconds
+    EXTERNAL_SERVICE: 15000, // 15 seconds
+    SEARCH_QUERY: 5000, // 5 seconds
+    FILE_UPLOAD: 120000, // 2 minutes
+  },
+
+  // Retries
+  RETRY: {
+    MAX_ATTEMPTS: 3,
+    INITIAL_DELAY_MS: 1000,
+    MAX_DELAY_MS: 10000,
+  },
+};

@@ -1,0 +1,1249 @@
+// Prisma Schema for Real Estate Platform
+// PostgreSQL Database
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================
+// ENUMS
+// ============================================================
+
+enum UserRole {
+  USER
+  AGENT
+  BUILDER
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  BLOCKED
+  PENDING_VERIFICATION
+  DELETED
+}
+
+enum OrgType {
+  AGENT_FIRM
+  BUILDER
+  INDIVIDUAL_AGENT
+}
+
+enum OrgStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+  SUSPENDED
+}
+
+enum KycStatus {
+  PENDING
+  UNDER_REVIEW
+  APPROVED
+  REJECTED
+}
+
+enum MemberRole {
+  OWNER
+  ADMIN
+  MANAGER
+  MEMBER
+}
+
+enum MemberStatus {
+  INVITED
+  ACTIVE
+  INACTIVE
+  REMOVED
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  INTERESTED
+  SITE_VISIT_SCHEDULED
+  SITE_VISIT_DONE
+  NEGOTIATING
+  CONVERTED
+  LOST
+  SPAM
+}
+
+enum LeadSource {
+  PROPERTY_PAGE
+  SEARCH
+  SHORTLIST
+  CONTACT_FORM
+  PHONE
+  WHATSAPP
+  CHAT
+  PARTNER
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum PackageType {
+  LISTING_BOOST
+  SUBSCRIPTION
+  CREDITS
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELLED
+  EXPIRED
+  PAST_DUE
+}
+
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum DiscountType {
+  PERCENTAGE
+  FIXED
+}
+
+enum RefundStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum NotificationChannel {
+  SMS
+  EMAIL
+  PUSH
+  WHATSAPP
+  IN_APP
+}
+
+enum ModerationTaskStatus {
+  PENDING
+  CLAIMED
+  COMPLETED
+  CANCELLED
+}
+
+enum ModerationTaskType {
+  NEW_LISTING
+  UPDATE
+  REPORT
+  KYC
+  CONTENT
+}
+
+enum ModerationDecision {
+  APPROVE
+  REJECT
+  REQUEST_CHANGES
+}
+
+enum ReportStatus {
+  PENDING
+  UNDER_REVIEW
+  RESOLVED
+  DISMISSED
+}
+
+// ============================================================
+// USERS & AUTHENTICATION
+// ============================================================
+
+model User {
+  id              String      @id @default(uuid())
+  phone           String?     @unique
+  email           String?     @unique
+  passwordHash    String?
+  name            String?
+  avatarUrl       String?
+  role            UserRole    @default(USER)
+  status          UserStatus  @default(PENDING_VERIFICATION)
+  emailVerified   Boolean     @default(false)
+  phoneVerified   Boolean     @default(false)
+  metadata        Json?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  // Relations
+  sessions        Session[]
+  preferences     UserPreferences?
+  consents        UserConsent[]
+  organizations   OrgMember[]
+  leads           Lead[]        @relation("BuyerLeads")
+  sellerLeads     Lead[]        @relation("SellerLeads")
+  assignedLeads   Lead[]        @relation("AssignedLeads")
+  leadNotes       LeadNote[]
+  leadActivities  LeadActivity[]
+  subscriptions   Subscription[]
+  payments        Payment[]
+  notifications   Notification[]
+  pushTokens      PushToken[]
+  shortlists      Shortlist[]
+  savedSearches   SavedSearch[]
+  priceAlerts     PriceAlert[]
+  auditLogs       AuditLog[]
+  adminRoles      AdminRoleAssignment[]
+  reports         Report[]       @relation("ReporterReports")
+  createdOrgs     Organization[] @relation("CreatedOrgs")
+  reviews         Review[]
+  supportTickets  SupportTicket[]
+  teamMemberships TeamMember[]
+
+  @@index([phone])
+  @@index([email])
+  @@index([role, status])
+  @@map("users")
+}
+
+model Session {
+  id               String    @id @default(uuid())
+  userId           String
+  refreshTokenHash String
+  deviceInfo       Json?
+  ipAddress        String?
+  userAgent        String?
+  expiresAt        DateTime
+  createdAt        DateTime  @default(now())
+  lastUsedAt       DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([refreshTokenHash])
+  @@index([expiresAt])
+  @@map("sessions")
+}
+
+model UserPreferences {
+  id                   String   @id @default(uuid())
+  userId               String   @unique
+  notificationSettings Json?
+  searchPreferences    Json?
+  displayPreferences   Json?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_preferences")
+}
+
+model UserConsent {
+  id          String    @id @default(uuid())
+  userId      String
+  consentType String    // MARKETING, ANALYTICS, TERMS, PRIVACY
+  granted     Boolean   @default(false)
+  grantedAt   DateTime?
+  revokedAt   DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, consentType])
+  @@map("user_consents")
+}
+
+model OtpRequest {
+  id             String   @id @default(uuid())
+  identifier     String   // phone or email
+  identifierType String   // PHONE or EMAIL
+  otpHash        String
+  purpose        String   // LOGIN, REGISTER, RESET_PASSWORD, VERIFY
+  attempts       Int      @default(0)
+  expiresAt      DateTime
+  createdAt      DateTime @default(now())
+
+  @@index([identifier, purpose])
+  @@index([expiresAt])
+  @@map("otp_requests")
+}
+
+// ============================================================
+// ORGANIZATIONS
+// ============================================================
+
+model Organization {
+  id              String    @id @default(uuid())
+  name            String
+  slug            String    @unique
+  type            OrgType
+  status          OrgStatus @default(PENDING)
+  logoUrl         String?
+  coverUrl        String?
+  description     String?
+  website         String?
+  contactEmail    String?
+  contactPhone    String?
+  address         Json?
+  reraNumbers     String[]
+  gstNumber       String?
+  panNumber       String?
+  establishedYear Int?
+  employeeCount   Int?
+  metadata        Json?
+  createdById     String
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  // Relations
+  createdBy     User          @relation("CreatedOrgs", fields: [createdById], references: [id])
+  members       OrgMember[]
+  kycDocuments  KycDocument[]
+  invites       OrgInvite[]
+  leads         Lead[]
+  subscriptions Subscription[]
+  payments      Payment[]
+  teams         Team[]
+
+  @@index([status])
+  @@index([type, status])
+  @@map("organizations")
+}
+
+model OrgMember {
+  id          String       @id @default(uuid())
+  orgId       String
+  userId      String
+  role        MemberRole   @default(MEMBER)
+  status      MemberStatus @default(INVITED)
+  title       String?
+  permissions Json?
+  invitedById String?
+  invitedAt   DateTime     @default(now())
+  joinedAt    DateTime?
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([orgId, userId])
+  @@index([userId])
+  @@map("org_members")
+}
+
+model KycDocument {
+  id             String    @id @default(uuid())
+  orgId          String
+  documentType   String    // PAN, GST, RERA, ADDRESS_PROOF, etc.
+  documentNumber String?
+  documentUrl    String
+  status         KycStatus @default(PENDING)
+  submittedById  String
+  submittedAt    DateTime  @default(now())
+  reviewerId     String?
+  reviewNotes    String?
+  reviewedAt     DateTime?
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId, status])
+  @@map("kyc_documents")
+}
+
+model OrgInvite {
+  id          String    @id @default(uuid())
+  orgId       String
+  email       String
+  role        MemberRole
+  token       String    @unique
+  expiresAt   DateTime
+  invitedById String
+  createdAt   DateTime  @default(now())
+  acceptedAt  DateTime?
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([email])
+  @@index([token])
+  @@map("org_invites")
+}
+
+// ============================================================
+// LEADS & APPOINTMENTS
+// ============================================================
+
+model Lead {
+  id                 String     @id @default(uuid())
+  propertyId         String?
+  projectId          String?
+  buyerId            String?
+  sellerId           String
+  orgId              String?
+  assignedToId       String?
+  status             LeadStatus @default(NEW)
+  source             LeadSource
+  message            String?
+  contactPreference  String?
+  buyerName          String
+  buyerPhone         String
+  buyerEmail         String?
+  budgetMin          Decimal?   @db.Decimal(15, 2)
+  budgetMax          Decimal?   @db.Decimal(15, 2)
+  preferredLocalities String[]
+  metadata           Json?
+  spamScore          Float?
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+  contactedAt        DateTime?
+  convertedAt        DateTime?
+
+  // Relations
+  buyer        User?          @relation("BuyerLeads", fields: [buyerId], references: [id])
+  seller       User           @relation("SellerLeads", fields: [sellerId], references: [id])
+  assignedTo   User?          @relation("AssignedLeads", fields: [assignedToId], references: [id])
+  organization Organization?  @relation(fields: [orgId], references: [id])
+  notes        LeadNote[]
+  activities   LeadActivity[]
+  appointments Appointment[]
+
+  @@index([sellerId, status])
+  @@index([orgId, status])
+  @@index([assignedToId, status])
+  @@index([buyerPhone])
+  @@index([createdAt])
+  @@map("leads")
+}
+
+model LeadNote {
+  id         String   @id @default(uuid())
+  leadId     String
+  authorId   String
+  content    String
+  isInternal Boolean  @default(true)
+  createdAt  DateTime @default(now())
+
+  lead   Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  author User @relation(fields: [authorId], references: [id])
+
+  @@index([leadId])
+  @@map("lead_notes")
+}
+
+model LeadActivity {
+  id           String   @id @default(uuid())
+  leadId       String
+  actorId      String
+  activityType String
+  details      Json?
+  createdAt    DateTime @default(now())
+
+  lead  Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  actor User @relation(fields: [actorId], references: [id])
+
+  @@index([leadId])
+  @@map("lead_activities")
+}
+
+model Appointment {
+  id              String            @id @default(uuid())
+  leadId          String
+  propertyId      String?
+  scheduledAt     DateTime
+  durationMinutes Int               @default(60)
+  location        String?
+  notes           String?
+  status          AppointmentStatus @default(SCHEDULED)
+  reminderSent    Boolean           @default(false)
+  createdById     String
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@index([leadId])
+  @@index([scheduledAt])
+  @@map("appointments")
+}
+
+// ============================================================
+// BILLING & PAYMENTS
+// ============================================================
+
+model Package {
+  id            String      @id @default(uuid())
+  name          String
+  slug          String      @unique
+  type          PackageType
+  description   String?
+  features      Json?
+  price         Decimal     @db.Decimal(10, 2)
+  currency      String      @default("INR")
+  durationDays  Int?
+  listingLimit  Int?
+  boostTier     String?
+  isActive      Boolean     @default(true)
+  sortOrder     Int         @default(0)
+  metadata      Json?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  subscriptions Subscription[]
+
+  @@index([isActive, type])
+  @@map("packages")
+}
+
+model Subscription {
+  id                 String             @id @default(uuid())
+  userId             String
+  orgId              String?
+  packageId          String
+  status             SubscriptionStatus @default(ACTIVE)
+  startsAt           DateTime
+  endsAt             DateTime
+  autoRenew          Boolean            @default(true)
+  cancelledAt        DateTime?
+  cancellationReason String?
+  metadata           Json?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+
+  user         User          @relation(fields: [userId], references: [id])
+  organization Organization? @relation(fields: [orgId], references: [id])
+  package      Package       @relation(fields: [packageId], references: [id])
+  payments     Payment[]
+
+  @@index([userId, status])
+  @@index([orgId, status])
+  @@index([endsAt])
+  @@map("subscriptions")
+}
+
+model Payment {
+  id                String        @id @default(uuid())
+  userId            String
+  orgId             String?
+  subscriptionId    String?
+  amount            Decimal       @db.Decimal(10, 2)
+  currency          String        @default("INR")
+  status            PaymentStatus @default(PENDING)
+  gateway           String
+  gatewayOrderId    String?
+  gatewayPaymentId  String?
+  gatewaySignature  String?
+  failureReason     String?
+  metadata          Json?
+  idempotencyKey    String?       @unique
+  createdAt         DateTime      @default(now())
+  completedAt       DateTime?
+
+  user         User          @relation(fields: [userId], references: [id])
+  organization Organization? @relation(fields: [orgId], references: [id])
+  subscription Subscription? @relation(fields: [subscriptionId], references: [id])
+  invoice      Invoice?
+  refunds      Refund[]
+  couponUsages CouponUsage[]
+
+  @@index([userId])
+  @@index([gatewayOrderId])
+  @@index([status, createdAt])
+  @@map("payments")
+}
+
+model Invoice {
+  id             String   @id @default(uuid())
+  paymentId      String   @unique
+  userId         String
+  orgId          String?
+  invoiceNumber  String   @unique
+  amount         Decimal  @db.Decimal(10, 2)
+  taxAmount      Decimal? @db.Decimal(10, 2)
+  totalAmount    Decimal  @db.Decimal(10, 2)
+  currency       String   @default("INR")
+  billingAddress Json?
+  pdfUrl         String?
+  createdAt      DateTime @default(now())
+
+  payment Payment @relation(fields: [paymentId], references: [id])
+
+  @@index([userId])
+  @@index([invoiceNumber])
+  @@map("invoices")
+}
+
+model Coupon {
+  id                 String       @id @default(uuid())
+  code               String       @unique
+  description        String?
+  discountType       DiscountType
+  discountValue      Decimal      @db.Decimal(10, 2)
+  maxUses            Int?
+  usedCount          Int          @default(0)
+  minAmount          Decimal?     @db.Decimal(10, 2)
+  maxDiscount        Decimal?     @db.Decimal(10, 2)
+  validFrom          DateTime
+  validUntil         DateTime
+  applicablePackages String[]
+  isActive           Boolean      @default(true)
+  createdAt          DateTime     @default(now())
+
+  usages CouponUsage[]
+
+  @@index([code, isActive])
+  @@map("coupons")
+}
+
+model CouponUsage {
+  id             String   @id @default(uuid())
+  couponId       String
+  userId         String
+  paymentId      String
+  discountAmount Decimal  @db.Decimal(10, 2)
+  usedAt         DateTime @default(now())
+
+  coupon  Coupon  @relation(fields: [couponId], references: [id])
+  payment Payment @relation(fields: [paymentId], references: [id])
+
+  @@index([couponId])
+  @@index([userId])
+  @@map("coupon_usages")
+}
+
+model Refund {
+  id              String       @id @default(uuid())
+  paymentId       String
+  amount          Decimal      @db.Decimal(10, 2)
+  reason          String
+  status          RefundStatus @default(PENDING)
+  gatewayRefundId String?
+  processedAt     DateTime?
+  createdAt       DateTime     @default(now())
+
+  payment Payment @relation(fields: [paymentId], references: [id])
+
+  @@index([paymentId])
+  @@map("refunds")
+}
+
+// ============================================================
+// NOTIFICATIONS
+// ============================================================
+
+model Notification {
+  id        String    @id @default(uuid())
+  userId    String
+  type      String
+  category  String
+  title     String
+  body      String
+  data      Json?
+  read      Boolean   @default(false)
+  readAt    DateTime?
+  actionUrl String?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  logs NotificationLog[]
+
+  @@index([userId, read])
+  @@index([createdAt])
+  @@map("notifications")
+}
+
+model NotificationTemplate {
+  id                 String   @id @default(uuid())
+  code               String   @unique
+  name               String
+  category           String
+  channels           String[]
+  subject            String?
+  smsBody            String?
+  emailSubject       String?
+  emailBody          String?
+  pushTitle          String?
+  pushBody           String?
+  whatsappTemplateId String?
+  variables          Json?
+  isActive           Boolean  @default(true)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@index([code, isActive])
+  @@map("notification_templates")
+}
+
+model PushToken {
+  id         String   @id @default(uuid())
+  userId     String
+  token      String
+  platform   String   // IOS, ANDROID, WEB
+  deviceId   String?
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  lastUsedAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, token])
+  @@index([token])
+  @@map("push_tokens")
+}
+
+model NotificationLog {
+  id               String   @id @default(uuid())
+  notificationId   String?
+  userId           String
+  channel          String
+  templateId       String?
+  recipient        String
+  status           String
+  providerResponse Json?
+  error            String?
+  sentAt           DateTime?
+  deliveredAt      DateTime?
+  createdAt        DateTime @default(now())
+
+  notification Notification? @relation(fields: [notificationId], references: [id])
+
+  @@index([notificationId])
+  @@index([userId, createdAt])
+  @@map("notification_logs")
+}
+
+// ============================================================
+// GEO / LOCATION
+// ============================================================
+
+model Country {
+  id        String  @id @default(uuid())
+  name      String
+  code      String  @unique
+  phoneCode String
+  currency  String
+  isActive  Boolean @default(true)
+
+  states State[]
+
+  @@map("countries")
+}
+
+model State {
+  id        String  @id @default(uuid())
+  countryId String
+  name      String
+  code      String
+  isActive  Boolean @default(true)
+
+  country Country @relation(fields: [countryId], references: [id])
+  cities  City[]
+
+  @@unique([countryId, code])
+  @@map("states")
+}
+
+model City {
+  id         String  @id @default(uuid())
+  stateId    String
+  name       String
+  slug       String  @unique
+  tier       String?
+  latitude   Float?
+  longitude  Float?
+  timezone   String?
+  isActive   Boolean @default(true)
+  isFeatured Boolean @default(false)
+  metadata   Json?
+
+  state      State      @relation(fields: [stateId], references: [id])
+  localities Locality[]
+
+  @@index([isActive, isFeatured])
+  @@map("cities")
+}
+
+model Locality {
+  id          String  @id @default(uuid())
+  cityId      String
+  name        String
+  slug        String
+  pincode     String?
+  latitude    Float?
+  longitude   Float?
+  polygon     Json?   // GeoJSON polygon
+  isActive    Boolean @default(true)
+  isFeatured  Boolean @default(false)
+  avgPriceSqft Float?
+  metadata    Json?
+
+  city City  @relation(fields: [cityId], references: [id])
+  pois Poi[]
+
+  @@unique([cityId, slug])
+  @@index([isActive])
+  @@map("localities")
+}
+
+model Poi {
+  id         String  @id @default(uuid())
+  localityId String
+  name       String
+  type       String  // SCHOOL, HOSPITAL, METRO, MALL, etc.
+  category   String?
+  latitude   Float
+  longitude  Float
+  address    String?
+  metadata   Json?
+
+  locality Locality @relation(fields: [localityId], references: [id])
+
+  @@index([localityId, type])
+  @@map("pois")
+}
+
+// ============================================================
+// USER INTERACTIONS
+// ============================================================
+
+model Shortlist {
+  id         String   @id @default(uuid())
+  userId     String
+  propertyId String
+  createdAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, propertyId])
+  @@index([userId])
+  @@map("shortlists")
+}
+
+model SavedSearch {
+  id           String   @id @default(uuid())
+  userId       String
+  name         String
+  filters      Json
+  alertEnabled Boolean  @default(false)
+  alertFrequency String?
+  lastAlertAt  DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("saved_searches")
+}
+
+model PriceAlert {
+  id         String   @id @default(uuid())
+  userId     String
+  propertyId String
+  targetPrice Decimal @db.Decimal(15, 2)
+  isActive   Boolean  @default(true)
+  triggeredAt DateTime?
+  createdAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, propertyId])
+  @@index([propertyId, isActive])
+  @@map("price_alerts")
+}
+
+// ============================================================
+// ADMIN & MODERATION
+// ============================================================
+
+model AdminRole {
+  id          String   @id @default(uuid())
+  name        String
+  slug        String   @unique
+  description String?
+  permissions Json
+  isSystem    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  assignments AdminRoleAssignment[]
+
+  @@map("admin_roles")
+}
+
+model AdminRoleAssignment {
+  id         String    @id @default(uuid())
+  userId     String
+  roleId     String
+  assignedBy String
+  assignedAt DateTime  @default(now())
+  revokedAt  DateTime?
+
+  user User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role AdminRole @relation(fields: [roleId], references: [id])
+
+  @@unique([userId, roleId])
+  @@map("admin_role_assignments")
+}
+
+model AuditLog {
+  id           String   @id @default(uuid())
+  actorId      String?
+  actorType    String   // USER, ADMIN, SYSTEM
+  action       String
+  resourceType String
+  resourceId   String
+  changes      Json?
+  ipAddress    String?
+  userAgent    String?
+  traceId      String?
+  createdAt    DateTime @default(now())
+
+  actor User? @relation(fields: [actorId], references: [id])
+
+  @@index([resourceType, resourceId])
+  @@index([actorId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+model ModerationTask {
+  id             String               @id @default(uuid())
+  entityType     String
+  entityId       String
+  taskType       ModerationTaskType
+  status         ModerationTaskStatus @default(PENDING)
+  priority       String               @default("MEDIUM")
+  autoScore      Float?
+  claimedById    String?
+  claimedAt      DateTime?
+  reviewedById   String?
+  reviewDecision ModerationDecision?
+  reviewNotes    String?
+  reviewedAt     DateTime?
+  createdAt      DateTime             @default(now())
+
+  @@index([status, priority])
+  @@index([entityType, entityId])
+  @@index([claimedById])
+  @@map("moderation_tasks")
+}
+
+model ModerationRule {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  entityType  String
+  conditions  Json
+  actions     Json
+  priority    Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdById String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([entityType, isActive])
+  @@map("moderation_rules")
+}
+
+model BlacklistEntry {
+  id          String    @id @default(uuid())
+  entryType   String    // PHONE, EMAIL, IP, WORD
+  value       String
+  reason      String
+  severity    String    @default("MEDIUM")
+  expiresAt   DateTime?
+  createdById String
+  createdAt   DateTime  @default(now())
+
+  @@unique([entryType, value])
+  @@index([entryType])
+  @@map("blacklist_entries")
+}
+
+model Report {
+  id           String       @id @default(uuid())
+  reporterId   String
+  entityType   String
+  entityId     String
+  reason       String
+  description  String?
+  evidenceUrls String[]
+  status       ReportStatus @default(PENDING)
+  resolution   String?
+  resolvedById String?
+  resolvedAt   DateTime?
+  createdAt    DateTime     @default(now())
+
+  reporter User @relation("ReporterReports", fields: [reporterId], references: [id])
+
+  @@index([entityType, entityId])
+  @@index([status])
+  @@map("reports")
+}
+
+// ============================================================
+// WEBHOOK EVENTS LOG
+// ============================================================
+
+model RuntimeConfig {
+  key       String   @id
+  value     Json
+  updatedAt DateTime @updatedAt
+
+  @@map("runtime_config")
+}
+
+model WebhookEvent {
+  id          String   @id @default(uuid())
+  provider    String
+  eventId     String   @unique
+  signature   String?
+  rawBody     String
+  status      String   @default("RECEIVED")
+  createdAt   DateTime @default(now())
+  processedAt DateTime?
+
+  @@index([provider, createdAt])
+  @@map("webhook_events")
+}
+
+// ============================================================
+// REVIEWS & TRUST
+// ============================================================
+
+model Review {
+  id         String   @id @default(uuid())
+  authorId   String
+  entityType String
+  entityId   String
+  rating     Int
+  title      String?
+  body       String?
+  status     String   @default("PENDING")
+  metadata   Json?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  author User @relation(fields: [authorId], references: [id])
+
+  @@index([entityType, entityId])
+  @@index([status])
+  @@map("reviews")
+}
+
+// ============================================================
+// SEO & CMS
+// ============================================================
+
+model SeoLandingPage {
+  id         String   @id @default(uuid())
+  type       String
+  slug       String   @unique
+  title      String?
+  content    Json
+  cityId     String?
+  localityId String?
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([type, isActive])
+  @@map("seo_landing_pages")
+}
+
+model Banner {
+  id        String   @id @default(uuid())
+  title     String
+  imageUrl  String
+  linkUrl   String?
+  position  String?
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  startsAt  DateTime?
+  endsAt    DateTime?
+  metadata  Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isActive, sortOrder])
+  @@map("banners")
+}
+
+model ContentPage {
+  id        String   @id @default(uuid())
+  type      String
+  slug      String   @unique
+  title     String
+  body      String?
+  metadata  Json?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([type, isActive])
+  @@map("content_pages")
+}
+
+// ============================================================
+// METADATA (MASTER DATA)
+// ============================================================
+
+model MetaItem {
+  id        String   @id @default(uuid())
+  category  String
+  value     String
+  label     String?
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  metadata  Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([category, value])
+  @@index([category, isActive])
+  @@map("meta_items")
+}
+
+// ============================================================
+// FEATURE FLAGS & EXPERIMENTS
+// ============================================================
+
+model FeatureFlag {
+  id          String   @id @default(uuid())
+  key         String   @unique
+  description String?
+  enabled     Boolean  @default(false)
+  rules       Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("feature_flags")
+}
+
+model Experiment {
+  id          String   @id @default(uuid())
+  key         String   @unique
+  description String?
+  status      String   @default("ACTIVE")
+  variants    Json?
+  rules       Json?
+  startsAt    DateTime?
+  endsAt      DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  exposures ExperimentExposure[]
+
+  @@index([status])
+  @@map("experiments")
+}
+
+model ExperimentExposure {
+  id           String   @id @default(uuid())
+  experimentId String
+  userId       String?
+  deviceId     String?
+  variant      String
+  metadata     Json?
+  createdAt    DateTime @default(now())
+
+  experiment Experiment @relation(fields: [experimentId], references: [id], onDelete: Cascade)
+
+  @@index([experimentId, createdAt])
+  @@index([userId, createdAt])
+  @@map("experiment_exposures")
+}
+
+// ============================================================
+// BULK JOBS
+// ============================================================
+
+model BulkJob {
+  id        String   @id @default(uuid())
+  type      String
+  status    String   @default("PENDING")
+  input     Json?
+  output    Json?
+  errorUrl  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([type, status])
+  @@map("bulk_jobs")
+}
+
+// ============================================================
+// SUPPORT
+// ============================================================
+
+model SupportTicket {
+  id          String   @id @default(uuid())
+  userId      String
+  subject     String
+  description String
+  status      String   @default("OPEN")
+  priority    String   @default("MEDIUM")
+  metadata    Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user     User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  messages SupportTicketMessage[]
+
+  @@index([userId, status])
+  @@map("support_tickets")
+}
+
+model SupportTicketMessage {
+  id         String   @id @default(uuid())
+  ticketId   String
+  authorId   String?
+  authorType String   @default("USER")
+  message    String
+  createdAt  DateTime @default(now())
+
+  ticket SupportTicket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+
+  @@index([ticketId, createdAt])
+  @@map("support_ticket_messages")
+}
+
+// ============================================================
+// ORG TEAMS (optional)
+// ============================================================
+
+model Team {
+  id        String   @id @default(uuid())
+  orgId     String
+  name      String
+  metadata  Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  members      TeamMember[]
+
+  @@index([orgId])
+  @@map("teams")
+}
+
+model TeamMember {
+  id        String   @id @default(uuid())
+  teamId    String
+  userId    String
+  createdAt DateTime @default(now())
+
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([teamId, userId])
+  @@index([userId])
+  @@map("team_members")
+}
+

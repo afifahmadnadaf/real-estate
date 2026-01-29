@@ -1,0 +1,25 @@
+{
+  "name": "@real-estate/events",
+  "version": "1.0.0",
+  "description": "Kafka event schemas and utilities for Real Estate Platform",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest --passWithNoTests",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix"
+  },
+  "dependencies": {
+    "@real-estate/common": "workspace:*",
+    "kafkajs": "^2.2.4",
+    "uuid": "^9.0.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "keywords": ["real-estate", "events", "kafka", "messaging"],
+  "author": "Real Estate Team",
+  "license": "UNLICENSED"
+}
+

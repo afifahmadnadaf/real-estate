@@ -1,0 +1,36 @@
+{
+  "name": "media-processor-worker",
+  "version": "1.0.0",
+  "description": "Background worker for processing media files (images, videos)",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest --passWithNoTests",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix"
+  },
+  "dependencies": {
+    "@real-estate/common": "workspace:*",
+    "@real-estate/db-models": "workspace:*",
+    "@real-estate/events": "workspace:*",
+    "@aws-sdk/client-s3": "^3.490.0",
+    "dotenv": "^16.3.1",
+    "sharp": "^0.33.1",
+    "pino": "^8.17.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2"
+  },
+  "nodemonConfig": {
+    "watch": ["src"],
+    "ext": "js,json",
+    "ignore": ["*.test.js"]
+  },
+  "keywords": ["worker", "media-processor", "image-processing", "real-estate"],
+  "author": "Real Estate Team",
+  "license": "UNLICENSED"
+}
+

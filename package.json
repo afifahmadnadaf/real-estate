@@ -1,0 +1,86 @@
+{
+  "name": "real-estate-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production-grade Real Estate Marketplace Platform",
+  "keywords": [
+    "real-estate",
+    "marketplace",
+    "microservices"
+  ],
+  "author": "Real Estate Team",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0",
+  "scripts": {
+    "dev": "pnpm run -r --parallel dev",
+    "dev:gateway": "pnpm --filter api-gateway dev",
+    "dev:user": "pnpm --filter user-service dev",
+    "dev:org": "pnpm --filter org-service dev",
+    "dev:property": "pnpm --filter property-service dev",
+    "dev:search": "pnpm --filter search-service dev",
+    "dev:media": "pnpm --filter media-service dev",
+    "dev:lead": "pnpm --filter lead-service dev",
+    "dev:moderation": "pnpm --filter moderation-service dev",
+    "dev:billing": "pnpm --filter billing-service dev",
+    "dev:notification": "pnpm --filter notification-service dev",
+    "dev:geo": "pnpm --filter geo-service dev",
+    "dev:analytics": "pnpm --filter analytics-service dev",
+    "start": "pnpm run -r start",
+    "build": "pnpm run -r build",
+    "test": "pnpm run -r test",
+    "test:unit": "pnpm run -r test:unit",
+    "test:integration": "pnpm run -r test:integration",
+    "test:coverage": "pnpm run -r test:coverage",
+    "lint": "eslint . --ext .js,.jsx",
+    "lint:fix": "eslint . --ext .js,.jsx --fix",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,json,md}\"",
+    "docker:infra": "docker-compose -f docker/docker-compose.yml up -d",
+    "docker:infra:down": "docker-compose -f docker/docker-compose.yml down",
+    "docker:services": "docker-compose -f docker/docker-compose.yml -f docker/docker-compose.services.yml up -d",
+    "docker:up": "docker-compose -f docker/docker-compose.yml -f docker/docker-compose.services.yml -f docker/docker-compose.dev.yml up -d",
+    "docker:down": "docker-compose -f docker/docker-compose.yml -f docker/docker-compose.services.yml down",
+    "docker:logs": "docker-compose -f docker/docker-compose.yml -f docker/docker-compose.services.yml logs -f",
+    "docker:rebuild": "docker-compose -f docker/docker-compose.yml -f docker/docker-compose.services.yml build --no-cache",
+    "docker:wait": "node scripts/wait-for-services.js",
+    "migrate": "pnpm --filter @real-estate/db-models migrate",
+    "migrate:dev": "pnpm --filter @real-estate/db-models migrate:dev",
+    "migrate:reset": "pnpm --filter @real-estate/db-models migrate:reset",
+    "prisma:generate": "pnpm --filter @real-estate/db-models prisma:generate",
+    "prisma:studio": "pnpm --filter @real-estate/db-models prisma:studio",
+    "seed": "node scripts/seed-data.js",
+    "db:reset": "node scripts/reset-db.js",
+    "setup": "node scripts/setup.js",
+    "generate:keys": "node scripts/generate-keys.js",
+    "create:admin": "node scripts/create-admin.js",
+    "clean": "pnpm run -r clean && rm -rf node_modules",
+    "prepare": "husky install || true"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.4"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "pnpm": "^10.28.0"
+  }
+}
