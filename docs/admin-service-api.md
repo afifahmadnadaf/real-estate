@@ -48,6 +48,18 @@ Backed by `admin.routes.js`.
 
 These endpoints assign/remove roles on users and fetch their roles.
 
+### 1.8 `POST /v1/admin/internal/permissions/check`
+- **Description**: Internal permission check used by API Gateway / services.
+- **Headers**:
+  - `Authorization: Bearer <accessToken>` (required)
+  - `Content-Type: application/json`
+- **Body**:
+  - `userId` (string, required)
+  - `permission` (string, required)
+- **Responses**:
+  - `200`: `{ success: true, allowed: boolean }`
+  - `400`: `{ success: false, message: 'userId and permission required' }`
+
 ---
 
 ## 2. Metadata / Master Data
@@ -76,6 +88,19 @@ Backed by `admin.meta.routes.js`:
 - `DELETE /v1/admin/meta/{category}/{id}`
 
 Where `category` is one of `property-types`, `amenities`, etc.
+
+Common categories used by admin UI:
+
+- Property types
+  - `GET /v1/admin/meta/property-types`
+  - `POST /v1/admin/meta/property-types`
+  - `PATCH /v1/admin/meta/property-types/{id}`
+  - `DELETE /v1/admin/meta/property-types/{id}`
+- Amenities
+  - `GET /v1/admin/meta/amenities`
+  - `POST /v1/admin/meta/amenities`
+  - `PATCH /v1/admin/meta/amenities/{id}`
+  - `DELETE /v1/admin/meta/amenities/{id}`
 
 ---
 
@@ -131,6 +156,12 @@ These return SEO-optimized page configs/content blocks for city/locality landing
 
 Backed by `experiments.routes.js`:
 
+- `GET /v1/experiments`
+  - **Auth**: optional (`optionalAuth`).
+  - **Description**: List experiment definitions needed by clients (service-defined shape).
+- `POST /v1/experiments/exposure`
+  - **Auth**: optional (`optionalAuth`).
+  - **Description**: Unified exposure logging endpoint (preferred by newer clients).
 - `GET /v1/experiments/{key}/assignment`
   - **Auth**: optional (`optionalAuth`); uses user/session to compute assignment.
 - `POST /v1/experiments/{key}/exposures`
@@ -147,6 +178,15 @@ Backed by `admin.feature-flags.routes.js`:
 - `DELETE /v1/admin/feature-flags/{key}`
 
 Payloads contain flag definition (key, description, enabled, rules/targets).
+
+### 5.3 Admin Experiments (`/v1/admin/experiments`)
+
+Backed by `admin.experiments.routes.js`:
+
+- `GET /v1/admin/experiments`
+- `POST /v1/admin/experiments`
+- `PATCH /v1/admin/experiments/{key}`
+- `DELETE /v1/admin/experiments/{expId}`
 
 ---
 
@@ -174,6 +214,49 @@ Backed by `system.routes.js`:
 - `GET /v1/admin/system/dependencies`
   - Dependencies health (databases, Kafka, external APIs).
 
+### 7.4 Rate Limits (`/v1/admin/rate-limits`)
+
+- `GET /v1/admin/rate-limits`
+  - **Description**: View current rate limit configuration and counters (service-defined shape).
+- `PATCH /v1/admin/rate-limits`
+  - **Description**: Update rate limit configuration (service-defined payload).
+
+### 7.5 Bot / Abuse Controls (`/v1/admin/bot/*`)
+
+- `GET /v1/admin/bot/blocked`
+  - **Description**: List blocked identifiers (IPs/devices/users) used by bot protection.
+
+### 7.6 Bulk Import/Export (`/v1/admin/bulk/*`)
+
+- `GET /v1/admin/bulk/jobs`
+  - **Description**: List bulk jobs (imports/exports).
+- `GET /v1/admin/bulk/jobs/{jobId}`
+  - **Description**: Get a bulk job.
+- `GET /v1/admin/bulk/jobs/{jobId}/errors`
+  - **Description**: Fetch job errors (row-level failures, validation issues).
+- `POST /v1/admin/bulk/export/properties`
+  - **Description**: Export properties (CSV/JSON; service-defined response).
+- `GET /v1/admin/bulk/export/{exportId}`
+  - **Description**: Download/export status endpoint.
+- `POST /v1/admin/bulk/import/properties`
+  - **Description**: Start properties import (payload depends on importer; typically file/media reference).
+- `POST /v1/admin/bulk/import/projects`
+  - **Description**: Start projects import.
+
+### 7.7 Support Tickets (`/v1/support/*`, `/v1/admin/support/*`)
+
+User/agent support (auth required):
+
+- `GET /v1/support/tickets`
+- `POST /v1/support/tickets`
+- `GET /v1/support/tickets/{ticketId}`
+- `PATCH /v1/support/tickets/{ticketId}`
+
+Admin support tooling (admin role):
+
+- `GET /v1/admin/support/tickets`
+- `PATCH /v1/admin/support/tickets/{ticketId}`
+
 ---
 
 ## 8. Headers & Errors
@@ -183,5 +266,29 @@ Backed by `system.routes.js`:
   - `X-Request-Id` for tracing.
 - **Error model**:
   - `{ error: { code: string, message: string, details?: any, traceId: string } }`.
+
+---
+
+## 9. Internal Runtime Config (`/internal/v1/config`)
+
+These endpoints are **internal-only** and protected by `internalAuth` middleware.
+
+### 9.1 `GET /internal/v1/config`
+- **Headers**:
+  - `X-Internal-Token: <INTERNAL_API_TOKEN>` (required)
+- **Query**:
+  - `key` (string, optional): if provided, returns a single key/value.
+- **Responses**:
+  - `200`: if `key` provided → `{ key: string, value: any }`
+  - `200`: if `key` omitted → `{ [key: string]: any }`
+
+### 9.2 `POST /internal/v1/config`
+- **Headers**:
+  - `X-Internal-Token: <INTERNAL_API_TOKEN>` (required)
+  - `Content-Type: application/json`
+- **Body**:
+  - JSON object of config entries: `{ [key: string]: any }`
+- **Response**:
+  - `200`: `{ success: true, updatedKeys: string[] }`
 
 

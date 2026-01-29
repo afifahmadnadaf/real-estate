@@ -1,0 +1,5210 @@
+{
+  "generatedAt": "2026-01-29T13:32:11.664Z",
+  "totals": {
+    "inventory": 391,
+    "missingFromDocs": 168
+  },
+  "missing": [
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/audit/:id",
+      "gatewayPath": "/v1/admin/audit/:id",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/audit.routes.js",
+      "gatewayPathNorm": "/v1/admin/audit/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bot/blocked",
+      "gatewayPath": "/v1/admin/bot/blocked",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.bot.routes.js",
+      "gatewayPathNorm": "/v1/admin/bot/blocked"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bulk/export/:exportId",
+      "gatewayPath": "/v1/admin/bulk/export/:exportId",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.bulk.routes.js",
+      "gatewayPathNorm": "/v1/admin/bulk/export/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bulk/export/properties",
+      "gatewayPath": "/v1/admin/bulk/export/properties",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.bulk.routes.js",
+      "gatewayPathNorm": "/v1/admin/bulk/export/properties"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bulk/import/projects",
+      "gatewayPath": "/v1/admin/bulk/import/projects",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.bulk.routes.js",
+      "gatewayPathNorm": "/v1/admin/bulk/import/projects"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bulk/import/properties",
+      "gatewayPath": "/v1/admin/bulk/import/properties",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.bulk.routes.js",
+      "gatewayPathNorm": "/v1/admin/bulk/import/properties"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bulk/jobs",
+      "gatewayPath": "/v1/admin/bulk/jobs",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.bulk.routes.js",
+      "gatewayPathNorm": "/v1/admin/bulk/jobs"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bulk/jobs/:jobId",
+      "gatewayPath": "/v1/admin/bulk/jobs/:jobId",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.bulk.routes.js",
+      "gatewayPathNorm": "/v1/admin/bulk/jobs/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bulk/jobs/:jobId/errors",
+      "gatewayPath": "/v1/admin/bulk/jobs/:jobId/errors",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.bulk.routes.js",
+      "gatewayPathNorm": "/v1/admin/bulk/jobs/{param}/errors"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/banners/:bannerId",
+      "gatewayPath": "/v1/admin/content/banners/:bannerId",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.content.routes.js",
+      "gatewayPathNorm": "/v1/admin/content/banners/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/banners/:bannerId",
+      "gatewayPath": "/v1/admin/content/banners/:bannerId",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.content.routes.js",
+      "gatewayPathNorm": "/v1/admin/content/banners/{param}"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/pages/:pageId",
+      "gatewayPath": "/v1/admin/content/pages/:pageId",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.content.routes.js",
+      "gatewayPathNorm": "/v1/admin/content/pages/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/pages/:pageId",
+      "gatewayPath": "/v1/admin/content/pages/:pageId",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.content.routes.js",
+      "gatewayPathNorm": "/v1/admin/content/pages/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/pages/:pageId",
+      "gatewayPath": "/v1/admin/content/pages/:pageId",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.content.routes.js",
+      "gatewayPathNorm": "/v1/admin/content/pages/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/experiments",
+      "gatewayPath": "/v1/admin/experiments",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.experiments.routes.js",
+      "gatewayPathNorm": "/v1/admin/experiments"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/experiments",
+      "gatewayPath": "/v1/admin/experiments",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.experiments.routes.js",
+      "gatewayPathNorm": "/v1/admin/experiments"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/experiments/:expId",
+      "gatewayPath": "/v1/admin/experiments/:expId",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.experiments.routes.js",
+      "gatewayPathNorm": "/v1/admin/experiments/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/experiments/:key",
+      "gatewayPath": "/v1/admin/experiments/:key",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.experiments.routes.js",
+      "gatewayPathNorm": "/v1/admin/experiments/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/amenities",
+      "gatewayPath": "/v1/admin/meta/amenities",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js",
+      "gatewayPathNorm": "/v1/admin/meta/amenities"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/amenities",
+      "gatewayPath": "/v1/admin/meta/amenities",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js",
+      "gatewayPathNorm": "/v1/admin/meta/amenities"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/amenities/:id",
+      "gatewayPath": "/v1/admin/meta/amenities/:id",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js",
+      "gatewayPathNorm": "/v1/admin/meta/amenities/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/amenities/:id",
+      "gatewayPath": "/v1/admin/meta/amenities/:id",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js",
+      "gatewayPathNorm": "/v1/admin/meta/amenities/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/property-types",
+      "gatewayPath": "/v1/admin/meta/property-types",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js",
+      "gatewayPathNorm": "/v1/admin/meta/property-types"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/property-types",
+      "gatewayPath": "/v1/admin/meta/property-types",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js",
+      "gatewayPathNorm": "/v1/admin/meta/property-types"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/property-types/:id",
+      "gatewayPath": "/v1/admin/meta/property-types/:id",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js",
+      "gatewayPathNorm": "/v1/admin/meta/property-types/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/property-types/:id",
+      "gatewayPath": "/v1/admin/meta/property-types/:id",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js",
+      "gatewayPathNorm": "/v1/admin/meta/property-types/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/rate-limits",
+      "gatewayPath": "/v1/admin/rate-limits",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.rate-limits.routes.js",
+      "gatewayPathNorm": "/v1/admin/rate-limits"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/rate-limits",
+      "gatewayPath": "/v1/admin/rate-limits",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.rate-limits.routes.js",
+      "gatewayPathNorm": "/v1/admin/rate-limits"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/roles/:id",
+      "gatewayPath": "/v1/admin/roles/:id",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.routes.js",
+      "gatewayPathNorm": "/v1/admin/roles/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/roles/:id",
+      "gatewayPath": "/v1/admin/roles/:id",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.routes.js",
+      "gatewayPathNorm": "/v1/admin/roles/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/roles/:id",
+      "gatewayPath": "/v1/admin/roles/:id",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.routes.js",
+      "gatewayPathNorm": "/v1/admin/roles/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/support/tickets",
+      "gatewayPath": "/v1/admin/support/tickets",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.support.routes.js",
+      "gatewayPathNorm": "/v1/admin/support/tickets"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/support/tickets/:ticketId",
+      "gatewayPath": "/v1/admin/support/tickets/:ticketId",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.support.routes.js",
+      "gatewayPathNorm": "/v1/admin/support/tickets/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/users/:userId/roles",
+      "gatewayPath": "/v1/admin/users/:userId/roles",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.routes.js",
+      "gatewayPathNorm": "/v1/admin/users/{param}/roles"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/users/:userId/roles",
+      "gatewayPath": "/v1/admin/users/:userId/roles",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.routes.js",
+      "gatewayPathNorm": "/v1/admin/users/{param}/roles"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/users/:userId/roles/:roleId",
+      "gatewayPath": "/v1/admin/users/:userId/roles/:roleId",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.routes.js",
+      "gatewayPathNorm": "/v1/admin/users/{param}/roles/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/content/blog/:slug",
+      "gatewayPath": "/v1/content/blog/:slug",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/content.routes.js",
+      "gatewayPathNorm": "/v1/content/blog/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/experiments/exposure",
+      "gatewayPath": "/v1/experiments/exposure",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/experiments.routes.js",
+      "gatewayPathNorm": "/v1/experiments/exposure"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/seo/landing/city/:citySlug",
+      "gatewayPath": "/v1/seo/landing/city/:citySlug",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/seo.routes.js",
+      "gatewayPathNorm": "/v1/seo/landing/city/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/seo/landing/locality/:localitySlug",
+      "gatewayPath": "/v1/seo/landing/locality/:localitySlug",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/seo.routes.js",
+      "gatewayPathNorm": "/v1/seo/landing/locality/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/support/tickets",
+      "gatewayPath": "/v1/support/tickets",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/support.routes.js",
+      "gatewayPathNorm": "/v1/support/tickets"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/support/tickets",
+      "gatewayPath": "/v1/support/tickets",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/support.routes.js",
+      "gatewayPathNorm": "/v1/support/tickets"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/support/tickets/:ticketId",
+      "gatewayPath": "/v1/support/tickets/:ticketId",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/support.routes.js",
+      "gatewayPathNorm": "/v1/support/tickets/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/support/tickets/:ticketId",
+      "gatewayPath": "/v1/support/tickets/:ticketId",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/support.routes.js",
+      "gatewayPathNorm": "/v1/support/tickets/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "api-gateway",
+      "servicePath": "/cache/invalidate",
+      "gatewayPath": "/v1/cache/invalidate",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/api-gateway/src/routes/internal.routes.js",
+      "gatewayPathNorm": "/v1/cache/invalidate"
+    },
+    {
+      "method": "GET",
+      "service": "api-gateway",
+      "servicePath": "/media/:id/renditions",
+      "gatewayPath": "/v1/media/:id/renditions",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/api-gateway/src/routes/index.js",
+      "gatewayPathNorm": "/v1/media/{param}/renditions"
+    },
+    {
+      "method": "GET",
+      "service": "api-gateway",
+      "servicePath": "/properties/:id",
+      "gatewayPath": "/v1/properties/:id",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/api-gateway/src/routes/index.js",
+      "gatewayPathNorm": "/v1/properties/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/admin/webhooks/logs",
+      "gatewayPath": "/v1/admin/webhooks/logs",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/admin.webhooks.routes.js",
+      "gatewayPathNorm": "/v1/admin/webhooks/logs"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/admin/webhooks/replay",
+      "gatewayPath": "/v1/admin/webhooks/replay",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/admin.webhooks.routes.js",
+      "gatewayPathNorm": "/v1/admin/webhooks/replay"
+    },
+    {
+      "method": "DELETE",
+      "service": "billing-service",
+      "servicePath": "/v1/coupons/:couponId",
+      "gatewayPath": "/v1/coupons/:couponId",
+      "auth": "public",
+      "purpose": "Delete resource",
+      "source": "services/billing-service/src/routes/coupon.routes.js",
+      "gatewayPathNorm": "/v1/coupons/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "billing-service",
+      "servicePath": "/v1/coupons/:couponId",
+      "gatewayPath": "/v1/coupons/:couponId",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/billing-service/src/routes/coupon.routes.js",
+      "gatewayPathNorm": "/v1/coupons/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/invoices/:id",
+      "gatewayPath": "/v1/invoices/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/invoice.routes.js",
+      "gatewayPathNorm": "/v1/invoices/{param}"
+    },
+    {
+      "method": "DELETE",
+      "service": "billing-service",
+      "servicePath": "/v1/packages/:id",
+      "gatewayPath": "/v1/packages/:id",
+      "auth": "public",
+      "purpose": "Delete resource",
+      "source": "services/billing-service/src/routes/package.routes.js",
+      "gatewayPathNorm": "/v1/packages/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/packages/:id",
+      "gatewayPath": "/v1/packages/:id",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/package.routes.js",
+      "gatewayPathNorm": "/v1/packages/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "billing-service",
+      "servicePath": "/v1/packages/:id",
+      "gatewayPath": "/v1/packages/:id",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/billing-service/src/routes/package.routes.js",
+      "gatewayPathNorm": "/v1/packages/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/payments/:id",
+      "gatewayPath": "/v1/payments/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/payment.routes.js",
+      "gatewayPathNorm": "/v1/payments/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/payments/:id/refund",
+      "gatewayPath": "/v1/payments/:id/refund",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/payment.routes.js",
+      "gatewayPathNorm": "/v1/payments/{param}/refund"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/payments/:id/retry",
+      "gatewayPath": "/v1/payments/:id/retry",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/payment.routes.js",
+      "gatewayPathNorm": "/v1/payments/{param}/retry"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/refunds/:id",
+      "gatewayPath": "/v1/refunds/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/refund.routes.js",
+      "gatewayPathNorm": "/v1/refunds/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/subscriptions/:id",
+      "gatewayPath": "/v1/subscriptions/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/subscription.routes.js",
+      "gatewayPathNorm": "/v1/subscriptions/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/subscriptions/:id/cancel",
+      "gatewayPath": "/v1/subscriptions/:id/cancel",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/subscription.routes.js",
+      "gatewayPathNorm": "/v1/subscriptions/{param}/cancel"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/webhooks/shiprocket",
+      "gatewayPath": "/v1/webhooks/shiprocket",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/webhook.routes.js",
+      "gatewayPathNorm": "/v1/webhooks/shiprocket"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/cities/:id",
+      "gatewayPath": "/v1/geo/cities/:id",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js",
+      "gatewayPathNorm": "/v1/geo/cities/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/localities/:id",
+      "gatewayPath": "/v1/geo/localities/:id",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js",
+      "gatewayPathNorm": "/v1/geo/localities/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/localities/:id/polygon",
+      "gatewayPath": "/v1/geo/localities/:id/polygon",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js",
+      "gatewayPathNorm": "/v1/geo/localities/{param}/polygon"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/pois/:poiId",
+      "gatewayPath": "/v1/geo/pois/:poiId",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js",
+      "gatewayPathNorm": "/v1/geo/pois/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/internal/v1/leads/deliver",
+      "gatewayPath": "/internal/v1/leads/deliver",
+      "auth": "internal",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/internal.routes.js",
+      "gatewayPathNorm": "/internal/v1/leads/deliver"
+    },
+    {
+      "method": "GET",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id",
+      "gatewayPath": "/v1/leads/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/lead-service/src/routes/lead.routes.js",
+      "gatewayPathNorm": "/v1/leads/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id",
+      "gatewayPath": "/v1/leads/:id",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/lead-service/src/routes/lead.routes.js",
+      "gatewayPathNorm": "/v1/leads/{param}"
+    },
+    {
+      "method": "DELETE",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/appointment",
+      "gatewayPath": "/v1/leads/:id/appointment",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/lead-service/src/routes/lead.routes.js",
+      "gatewayPathNorm": "/v1/leads/{param}/appointment"
+    },
+    {
+      "method": "GET",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/appointment",
+      "gatewayPath": "/v1/leads/:id/appointment",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/lead-service/src/routes/lead.routes.js",
+      "gatewayPathNorm": "/v1/leads/{param}/appointment"
+    },
+    {
+      "method": "PATCH",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/appointment",
+      "gatewayPath": "/v1/leads/:id/appointment",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/lead-service/src/routes/lead.routes.js",
+      "gatewayPathNorm": "/v1/leads/{param}/appointment"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/appointment",
+      "gatewayPath": "/v1/leads/:id/appointment",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/lead.routes.js",
+      "gatewayPathNorm": "/v1/leads/{param}/appointment"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/assign",
+      "gatewayPath": "/v1/leads/:id/assign",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/lead.routes.js",
+      "gatewayPathNorm": "/v1/leads/{param}/assign"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/call/request",
+      "gatewayPath": "/v1/leads/:id/call/request",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/lead.routes.js",
+      "gatewayPathNorm": "/v1/leads/{param}/call/request"
+    },
+    {
+      "method": "GET",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/notes",
+      "gatewayPath": "/v1/leads/:id/notes",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/lead-service/src/routes/lead.routes.js",
+      "gatewayPathNorm": "/v1/leads/{param}/notes"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/notes",
+      "gatewayPath": "/v1/leads/:id/notes",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/lead.routes.js",
+      "gatewayPathNorm": "/v1/leads/{param}/notes"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/spam",
+      "gatewayPath": "/v1/leads/:id/spam",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/lead.routes.js",
+      "gatewayPathNorm": "/v1/leads/{param}/spam"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/unspam",
+      "gatewayPath": "/v1/leads/:id/unspam",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/lead.routes.js",
+      "gatewayPathNorm": "/v1/leads/{param}/unspam"
+    },
+    {
+      "method": "GET",
+      "service": "media-service",
+      "servicePath": "/v1/media/:id/renditions",
+      "gatewayPath": "/v1/media/:id/renditions",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/media-service/src/routes/media.routes.js",
+      "gatewayPathNorm": "/v1/media/{param}/renditions"
+    },
+    {
+      "method": "POST",
+      "service": "media-service",
+      "servicePath": "/v1/media/:id/reprocess",
+      "gatewayPath": "/v1/media/:id/reprocess",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/media-service/src/routes/media.routes.js",
+      "gatewayPathNorm": "/v1/media/{param}/reprocess"
+    },
+    {
+      "method": "DELETE",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/blacklist/:entryId",
+      "gatewayPath": "/v1/admin/blacklist/:entryId",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/moderation-service/src/routes/blacklist.routes.js",
+      "gatewayPathNorm": "/v1/admin/blacklist/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/blacklist/:entryId",
+      "gatewayPath": "/v1/admin/blacklist/:entryId",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/blacklist.routes.js",
+      "gatewayPathNorm": "/v1/admin/blacklist/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/blacklist/:entryId",
+      "gatewayPath": "/v1/admin/blacklist/:entryId",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/moderation-service/src/routes/blacklist.routes.js",
+      "gatewayPathNorm": "/v1/admin/blacklist/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/:taskId/claim",
+      "gatewayPath": "/v1/admin/moderation/:taskId/claim",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/moderation.routes.js",
+      "gatewayPathNorm": "/v1/admin/moderation/{param}/claim"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/:taskId/comment",
+      "gatewayPath": "/v1/admin/moderation/:taskId/comment",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/moderation.routes.js",
+      "gatewayPathNorm": "/v1/admin/moderation/{param}/comment"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/:taskId/decision",
+      "gatewayPath": "/v1/admin/moderation/:taskId/decision",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/moderation.routes.js",
+      "gatewayPathNorm": "/v1/admin/moderation/{param}/decision"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/:taskId/release",
+      "gatewayPath": "/v1/admin/moderation/:taskId/release",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/moderation.routes.js",
+      "gatewayPathNorm": "/v1/admin/moderation/{param}/release"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/queue/:taskId",
+      "gatewayPath": "/v1/admin/moderation/queue/:taskId",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/moderation.routes.js",
+      "gatewayPathNorm": "/v1/admin/moderation/queue/{param}"
+    },
+    {
+      "method": "DELETE",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/rules/:id",
+      "gatewayPath": "/v1/admin/moderation/rules/:id",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/moderation-service/src/routes/rules.routes.js",
+      "gatewayPathNorm": "/v1/admin/moderation/rules/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/rules/:id",
+      "gatewayPath": "/v1/admin/moderation/rules/:id",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/moderation-service/src/routes/rules.routes.js",
+      "gatewayPathNorm": "/v1/admin/moderation/rules/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/reports/:reportId/decision",
+      "gatewayPath": "/v1/admin/reports/:reportId/decision",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/admin.reports.routes.js",
+      "gatewayPathNorm": "/v1/admin/reports/{param}/decision"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/reviews/:reviewId/decision",
+      "gatewayPath": "/v1/admin/reviews/:reviewId/decision",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/admin.reviews.routes.js",
+      "gatewayPathNorm": "/v1/admin/reviews/{param}/decision"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/reports/:reportId",
+      "gatewayPath": "/v1/reports/:reportId",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/report.routes.js",
+      "gatewayPathNorm": "/v1/reports/{param}"
+    },
+    {
+      "method": "DELETE",
+      "service": "moderation-service",
+      "servicePath": "/v1/reviews/:reviewId",
+      "gatewayPath": "/v1/reviews/:reviewId",
+      "auth": "public",
+      "purpose": "Delete resource",
+      "source": "services/moderation-service/src/routes/review.routes.js",
+      "gatewayPathNorm": "/v1/reviews/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/reviews/:reviewId",
+      "gatewayPath": "/v1/reviews/:reviewId",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/review.routes.js",
+      "gatewayPathNorm": "/v1/reviews/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "moderation-service",
+      "servicePath": "/v1/reviews/:reviewId",
+      "gatewayPath": "/v1/reviews/:reviewId",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/moderation-service/src/routes/review.routes.js",
+      "gatewayPathNorm": "/v1/reviews/{param}"
+    },
+    {
+      "method": "DELETE",
+      "service": "notification-service",
+      "servicePath": "/v1/admin/notification-templates/:id",
+      "gatewayPath": "/v1/admin/notification-templates/:id",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/notification-service/src/routes/template.routes.js",
+      "gatewayPathNorm": "/v1/admin/notification-templates/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "notification-service",
+      "servicePath": "/v1/admin/notification-templates/:id",
+      "gatewayPath": "/v1/admin/notification-templates/:id",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/notification-service/src/routes/template.routes.js",
+      "gatewayPathNorm": "/v1/admin/notification-templates/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "notification-service",
+      "servicePath": "/v1/admin/notification-templates/:id",
+      "gatewayPath": "/v1/admin/notification-templates/:id",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/notification-service/src/routes/template.routes.js",
+      "gatewayPathNorm": "/v1/admin/notification-templates/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/admin/orgs/:orgId/verification/approve",
+      "gatewayPath": "/v1/admin/orgs/:orgId/verification/approve",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/org.routes.js",
+      "gatewayPathNorm": "/v1/admin/orgs/{param}/verification/approve"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/admin/orgs/:orgId/verification/reject",
+      "gatewayPath": "/v1/admin/orgs/:orgId/verification/reject",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/org.routes.js",
+      "gatewayPathNorm": "/v1/admin/orgs/{param}/verification/reject"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/admin/orgs/:orgId/verification/request-changes",
+      "gatewayPath": "/v1/admin/orgs/:orgId/verification/request-changes",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/org.routes.js",
+      "gatewayPathNorm": "/v1/admin/orgs/{param}/verification/request-changes"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/kyc",
+      "gatewayPath": "/v1/orgs/:orgId/kyc",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/kyc.routes.js",
+      "gatewayPathNorm": "/v1/orgs/{param}/kyc"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/kyc",
+      "gatewayPath": "/v1/orgs/:orgId/kyc",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/kyc.routes.js",
+      "gatewayPathNorm": "/v1/orgs/{param}/kyc"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/kyc/:kycId",
+      "gatewayPath": "/v1/orgs/:orgId/kyc/:kycId",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/kyc.routes.js",
+      "gatewayPathNorm": "/v1/orgs/{param}/kyc/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/kyc/:kycId",
+      "gatewayPath": "/v1/orgs/:orgId/kyc/:kycId",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/org-service/src/routes/kyc.routes.js",
+      "gatewayPathNorm": "/v1/orgs/{param}/kyc/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/kyc/:kycId/withdraw",
+      "gatewayPath": "/v1/orgs/:orgId/kyc/:kycId/withdraw",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/kyc.routes.js",
+      "gatewayPathNorm": "/v1/orgs/{param}/kyc/{param}/withdraw"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/logo",
+      "gatewayPath": "/v1/orgs/:orgId/logo",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/org.routes.js",
+      "gatewayPathNorm": "/v1/orgs/{param}/logo"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/members",
+      "gatewayPath": "/v1/orgs/:orgId/members",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/member.routes.js",
+      "gatewayPathNorm": "/v1/orgs/{param}/members"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/members",
+      "gatewayPath": "/v1/orgs/:orgId/members",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/member.routes.js",
+      "gatewayPathNorm": "/v1/orgs/{param}/members"
+    },
+    {
+      "method": "DELETE",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/members/:memberId",
+      "gatewayPath": "/v1/orgs/:orgId/members/:memberId",
+      "auth": "public",
+      "purpose": "Delete resource",
+      "source": "services/org-service/src/routes/member.routes.js",
+      "gatewayPathNorm": "/v1/orgs/{param}/members/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/members/:memberId",
+      "gatewayPath": "/v1/orgs/:orgId/members/:memberId",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/member.routes.js",
+      "gatewayPathNorm": "/v1/orgs/{param}/members/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/members/:memberId",
+      "gatewayPath": "/v1/orgs/:orgId/members/:memberId",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/org-service/src/routes/member.routes.js",
+      "gatewayPathNorm": "/v1/orgs/{param}/members/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/members/:memberId/resend-invite",
+      "gatewayPath": "/v1/orgs/:orgId/members/:memberId/resend-invite",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/member.routes.js",
+      "gatewayPathNorm": "/v1/orgs/{param}/members/{param}/resend-invite"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/verification/status",
+      "gatewayPath": "/v1/orgs/:orgId/verification/status",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/kyc.routes.js",
+      "gatewayPathNorm": "/v1/orgs/{param}/verification/status"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/projects",
+      "gatewayPath": "/v1/projects",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/projects",
+      "gatewayPath": "/v1/projects",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects"
+    },
+    {
+      "method": "DELETE",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId",
+      "gatewayPath": "/v1/projects/:projectId",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId",
+      "gatewayPath": "/v1/projects/:projectId",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId",
+      "gatewayPath": "/v1/projects/:projectId",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/brochure",
+      "gatewayPath": "/v1/projects/:projectId/brochure",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}/brochure"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/inventory/import",
+      "gatewayPath": "/v1/projects/:projectId/inventory/import",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}/inventory/import"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/inventory/import/:jobId",
+      "gatewayPath": "/v1/projects/:projectId/inventory/import/:jobId",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}/inventory/import/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/inventory/units",
+      "gatewayPath": "/v1/projects/:projectId/inventory/units",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}/inventory/units"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/inventory/units",
+      "gatewayPath": "/v1/projects/:projectId/inventory/units",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}/inventory/units"
+    },
+    {
+      "method": "DELETE",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/inventory/units/:unitId",
+      "gatewayPath": "/v1/projects/:projectId/inventory/units/:unitId",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}/inventory/units/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/inventory/units/:unitId",
+      "gatewayPath": "/v1/projects/:projectId/inventory/units/:unitId",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}/inventory/units/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/inventory/units/:unitId",
+      "gatewayPath": "/v1/projects/:projectId/inventory/units/:unitId",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}/inventory/units/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/media",
+      "gatewayPath": "/v1/projects/:projectId/media",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}/media"
+    },
+    {
+      "method": "DELETE",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/media/:mediaId",
+      "gatewayPath": "/v1/projects/:projectId/media/:mediaId",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}/media/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/media/order",
+      "gatewayPath": "/v1/projects/:projectId/media/order",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}/media/order"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/publish",
+      "gatewayPath": "/v1/projects/:projectId/publish",
+      "auth": "required",
+      "purpose": "Publish",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}/publish"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/submit",
+      "gatewayPath": "/v1/projects/:projectId/submit",
+      "auth": "required",
+      "purpose": "Submit for review",
+      "source": "services/property-service/src/routes/project.routes.js",
+      "gatewayPathNorm": "/v1/projects/{param}/submit"
+    },
+    {
+      "method": "DELETE",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id",
+      "gatewayPath": "/v1/properties/:id",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id",
+      "gatewayPath": "/v1/properties/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id",
+      "gatewayPath": "/v1/properties/:id",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/archive",
+      "gatewayPath": "/v1/properties/:id/archive",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/archive"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/audit",
+      "gatewayPath": "/v1/properties/:id/audit",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/audit"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/contact-options",
+      "gatewayPath": "/v1/properties/:id/contact-options",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/contact-options"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/documents",
+      "gatewayPath": "/v1/properties/:id/documents",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/documents"
+    },
+    {
+      "method": "DELETE",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/documents/:docId",
+      "gatewayPath": "/v1/properties/:id/documents/:docId",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/documents/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/duplicate/check",
+      "gatewayPath": "/v1/properties/:id/duplicate/check",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/duplicate/check"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/expire",
+      "gatewayPath": "/v1/properties/:id/expire",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/expire"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/mark-rented",
+      "gatewayPath": "/v1/properties/:id/mark-rented",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/mark-rented"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/mark-sold",
+      "gatewayPath": "/v1/properties/:id/mark-sold",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/mark-sold"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/media",
+      "gatewayPath": "/v1/properties/:id/media",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/media"
+    },
+    {
+      "method": "DELETE",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/media/:mediaId",
+      "gatewayPath": "/v1/properties/:id/media/:mediaId",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/media/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/media/order",
+      "gatewayPath": "/v1/properties/:id/media/order",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/media/order"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/publish",
+      "gatewayPath": "/v1/properties/:id/publish",
+      "auth": "required",
+      "purpose": "Publish",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/publish"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/refresh",
+      "gatewayPath": "/v1/properties/:id/refresh",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/refresh"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/restore",
+      "gatewayPath": "/v1/properties/:id/restore",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/restore"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/resubmit",
+      "gatewayPath": "/v1/properties/:id/resubmit",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/resubmit"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/similar",
+      "gatewayPath": "/v1/properties/:id/similar",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/similar"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/submit",
+      "gatewayPath": "/v1/properties/:id/submit",
+      "auth": "required",
+      "purpose": "Submit for review",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/submit"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/unpublish",
+      "gatewayPath": "/v1/properties/:id/unpublish",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/unpublish"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/versions",
+      "gatewayPath": "/v1/properties/:id/versions",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/property.routes.js",
+      "gatewayPathNorm": "/v1/properties/{param}/versions"
+    },
+    {
+      "method": "DELETE",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/alerts/price/:id",
+      "gatewayPath": "/v1/alerts/price/:id",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/user-interactions-service/src/routes/price-alert.routes.js",
+      "gatewayPathNorm": "/v1/alerts/price/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/alerts/price/:id",
+      "gatewayPath": "/v1/alerts/price/:id",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/user-interactions-service/src/routes/price-alert.routes.js",
+      "gatewayPathNorm": "/v1/alerts/price/{param}"
+    },
+    {
+      "method": "DELETE",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/saved-searches/:id",
+      "gatewayPath": "/v1/saved-searches/:id",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/user-interactions-service/src/routes/saved-search.routes.js",
+      "gatewayPathNorm": "/v1/saved-searches/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/saved-searches/:id",
+      "gatewayPath": "/v1/saved-searches/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/user-interactions-service/src/routes/saved-search.routes.js",
+      "gatewayPathNorm": "/v1/saved-searches/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/saved-searches/:id",
+      "gatewayPath": "/v1/saved-searches/:id",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/user-interactions-service/src/routes/saved-search.routes.js",
+      "gatewayPathNorm": "/v1/saved-searches/{param}"
+    },
+    {
+      "method": "DELETE",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/shortlists/:id",
+      "gatewayPath": "/v1/shortlists/:id",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/user-interactions-service/src/routes/shortlist.routes.js",
+      "gatewayPathNorm": "/v1/shortlists/{param}"
+    },
+    {
+      "method": "DELETE",
+      "service": "user-service",
+      "servicePath": "/v1/auth/sessions/:sessionId",
+      "gatewayPath": "/v1/auth/sessions/:sessionId",
+      "auth": "public",
+      "purpose": "Delete resource",
+      "source": "services/user-service/src/routes/auth.routes.js",
+      "gatewayPathNorm": "/v1/auth/sessions/{param}"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/v1/users/:userId",
+      "gatewayPath": "/v1/users/:userId",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/user-service/src/routes/user.routes.js",
+      "gatewayPathNorm": "/v1/users/{param}"
+    },
+    {
+      "method": "PATCH",
+      "service": "user-service",
+      "servicePath": "/v1/users/:userId",
+      "gatewayPath": "/v1/users/:userId",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/user-service/src/routes/user.routes.js",
+      "gatewayPathNorm": "/v1/users/{param}"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/users/:userId/block",
+      "gatewayPath": "/v1/users/:userId/block",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/user.routes.js",
+      "gatewayPathNorm": "/v1/users/{param}/block"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/users/:userId/unblock",
+      "gatewayPath": "/v1/users/:userId/unblock",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/user.routes.js",
+      "gatewayPathNorm": "/v1/users/{param}/unblock"
+    }
+  ],
+  "inventory": [
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/roles",
+      "gatewayPath": "/v1/admin/roles",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/roles/:id",
+      "gatewayPath": "/v1/admin/roles/:id",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/roles",
+      "gatewayPath": "/v1/admin/roles",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/roles/:id",
+      "gatewayPath": "/v1/admin/roles/:id",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/roles/:id",
+      "gatewayPath": "/v1/admin/roles/:id",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/roles/assign",
+      "gatewayPath": "/v1/admin/roles/assign",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/roles/revoke",
+      "gatewayPath": "/v1/admin/roles/revoke",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/users/:userId/roles",
+      "gatewayPath": "/v1/admin/users/:userId/roles",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/users/:userId/roles",
+      "gatewayPath": "/v1/admin/users/:userId/roles",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/users/:userId/roles/:roleId",
+      "gatewayPath": "/v1/admin/users/:userId/roles/:roleId",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/permissions",
+      "gatewayPath": "/v1/admin/permissions",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/internal/permissions/check",
+      "gatewayPath": "/v1/admin/internal/permissions/check",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/audit",
+      "gatewayPath": "/v1/admin/audit",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/audit.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/audit/:id",
+      "gatewayPath": "/v1/admin/audit/:id",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/audit.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/audit/export",
+      "gatewayPath": "/v1/admin/audit/export",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/audit.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/pages",
+      "gatewayPath": "/v1/admin/content/pages",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.content.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/pages",
+      "gatewayPath": "/v1/admin/content/pages",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.content.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/pages/:pageId",
+      "gatewayPath": "/v1/admin/content/pages/:pageId",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.content.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/pages/:pageId",
+      "gatewayPath": "/v1/admin/content/pages/:pageId",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.content.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/pages/:pageId",
+      "gatewayPath": "/v1/admin/content/pages/:pageId",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.content.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/banners",
+      "gatewayPath": "/v1/admin/content/banners",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.content.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/banners",
+      "gatewayPath": "/v1/admin/content/banners",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.content.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/banners/:bannerId",
+      "gatewayPath": "/v1/admin/content/banners/:bannerId",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.content.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/banners/:bannerId",
+      "gatewayPath": "/v1/admin/content/banners/:bannerId",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.content.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/seo",
+      "gatewayPath": "/v1/admin/content/seo",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.content.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/seo",
+      "gatewayPath": "/v1/admin/content/seo",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.content.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/content/seo/:slug",
+      "gatewayPath": "/v1/admin/content/seo/:slug",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.content.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bulk/import/properties",
+      "gatewayPath": "/v1/admin/bulk/import/properties",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.bulk.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bulk/import/projects",
+      "gatewayPath": "/v1/admin/bulk/import/projects",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.bulk.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bulk/export/properties",
+      "gatewayPath": "/v1/admin/bulk/export/properties",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.bulk.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bulk/export/:exportId",
+      "gatewayPath": "/v1/admin/bulk/export/:exportId",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.bulk.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bulk/jobs",
+      "gatewayPath": "/v1/admin/bulk/jobs",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.bulk.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bulk/jobs/:jobId",
+      "gatewayPath": "/v1/admin/bulk/jobs/:jobId",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.bulk.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bulk/jobs/:jobId/errors",
+      "gatewayPath": "/v1/admin/bulk/jobs/:jobId/errors",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.bulk.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/bot/blocked",
+      "gatewayPath": "/v1/admin/bot/blocked",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.bot.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/property-types",
+      "gatewayPath": "/v1/admin/meta/property-types",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/property-types",
+      "gatewayPath": "/v1/admin/meta/property-types",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/property-types/:id",
+      "gatewayPath": "/v1/admin/meta/property-types/:id",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/property-types/:id",
+      "gatewayPath": "/v1/admin/meta/property-types/:id",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/amenities",
+      "gatewayPath": "/v1/admin/meta/amenities",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/amenities",
+      "gatewayPath": "/v1/admin/meta/amenities",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/amenities/:id",
+      "gatewayPath": "/v1/admin/meta/amenities/:id",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/amenities/:id",
+      "gatewayPath": "/v1/admin/meta/amenities/:id",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/:category",
+      "gatewayPath": "/v1/admin/meta/:category",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/:category",
+      "gatewayPath": "/v1/admin/meta/:category",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/:category/:id",
+      "gatewayPath": "/v1/admin/meta/:category/:id",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/meta/:category/:id",
+      "gatewayPath": "/v1/admin/meta/:category/:id",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.meta.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/feature-flags",
+      "gatewayPath": "/v1/admin/feature-flags",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.feature-flags.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/feature-flags/:key",
+      "gatewayPath": "/v1/admin/feature-flags/:key",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.feature-flags.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/feature-flags",
+      "gatewayPath": "/v1/admin/feature-flags",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.feature-flags.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/feature-flags/:key",
+      "gatewayPath": "/v1/admin/feature-flags/:key",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.feature-flags.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/feature-flags/:key",
+      "gatewayPath": "/v1/admin/feature-flags/:key",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.feature-flags.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/experiments",
+      "gatewayPath": "/v1/admin/experiments",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.experiments.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/experiments",
+      "gatewayPath": "/v1/admin/experiments",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/admin.experiments.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/experiments/:key",
+      "gatewayPath": "/v1/admin/experiments/:key",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.experiments.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/experiments/:expId",
+      "gatewayPath": "/v1/admin/experiments/:expId",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/admin-service/src/routes/admin.experiments.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/rate-limits",
+      "gatewayPath": "/v1/admin/rate-limits",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.rate-limits.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/rate-limits",
+      "gatewayPath": "/v1/admin/rate-limits",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.rate-limits.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/support/tickets",
+      "gatewayPath": "/v1/admin/support/tickets",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/admin.support.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/support/tickets/:ticketId",
+      "gatewayPath": "/v1/admin/support/tickets/:ticketId",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/admin.support.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/system/status",
+      "gatewayPath": "/v1/admin/system/status",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/system.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/system/stats",
+      "gatewayPath": "/v1/admin/system/stats",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/system.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/admin/system/dependencies",
+      "gatewayPath": "/v1/admin/system/dependencies",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/system.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/internal/v1/config",
+      "gatewayPath": "/internal/v1/config",
+      "auth": "internal",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/internal.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/internal/v1/config",
+      "gatewayPath": "/internal/v1/config",
+      "auth": "internal",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/internal.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/content/home",
+      "gatewayPath": "/v1/content/home",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/content.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/content/faq",
+      "gatewayPath": "/v1/content/faq",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/content.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/content/blog",
+      "gatewayPath": "/v1/content/blog",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/content.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/content/blog/:slug",
+      "gatewayPath": "/v1/content/blog/:slug",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/content.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/content/banners",
+      "gatewayPath": "/v1/content/banners",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/content.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/seo/landing/cities",
+      "gatewayPath": "/v1/seo/landing/cities",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/seo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/seo/landing/city/:citySlug",
+      "gatewayPath": "/v1/seo/landing/city/:citySlug",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/seo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/seo/landing/locality/:localitySlug",
+      "gatewayPath": "/v1/seo/landing/locality/:localitySlug",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/seo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/meta/property-types",
+      "gatewayPath": "/v1/meta/property-types",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/meta.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/meta/amenities",
+      "gatewayPath": "/v1/meta/amenities",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/meta.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/meta/furnishing",
+      "gatewayPath": "/v1/meta/furnishing",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/meta.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/meta/facing",
+      "gatewayPath": "/v1/meta/facing",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/meta.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/meta/ownership-types",
+      "gatewayPath": "/v1/meta/ownership-types",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/meta.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/meta/availability",
+      "gatewayPath": "/v1/meta/availability",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/meta.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/meta/sort-options",
+      "gatewayPath": "/v1/meta/sort-options",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/meta.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/experiments",
+      "gatewayPath": "/v1/experiments",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/experiments.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/experiments/exposure",
+      "gatewayPath": "/v1/experiments/exposure",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/experiments.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/experiments/:key/assignment",
+      "gatewayPath": "/v1/experiments/:key/assignment",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/experiments.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/experiments/:key/exposures",
+      "gatewayPath": "/v1/experiments/:key/exposures",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/experiments.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "admin-service",
+      "servicePath": "/v1/support/tickets",
+      "gatewayPath": "/v1/support/tickets",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/admin-service/src/routes/support.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/support/tickets",
+      "gatewayPath": "/v1/support/tickets",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/support.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/v1/support/tickets/:ticketId",
+      "gatewayPath": "/v1/support/tickets/:ticketId",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/admin-service/src/routes/support.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "admin-service",
+      "servicePath": "/v1/support/tickets/:ticketId",
+      "gatewayPath": "/v1/support/tickets/:ticketId",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/admin-service/src/routes/support.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/health",
+      "gatewayPath": null,
+      "auth": "admin",
+      "purpose": "Health check",
+      "source": "admin-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/metrics",
+      "gatewayPath": null,
+      "auth": "admin",
+      "purpose": "Prometheus metrics",
+      "source": "admin-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "admin-service",
+      "servicePath": "/ready",
+      "gatewayPath": null,
+      "auth": "admin",
+      "purpose": "Readiness check",
+      "source": "admin-service:app.js"
+    },
+    {
+      "method": "POST",
+      "service": "analytics-service",
+      "servicePath": "/v1/events",
+      "gatewayPath": "/v1/events",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/analytics-service/src/routes/analytics.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "analytics-service",
+      "servicePath": "/v1/events/batch",
+      "gatewayPath": "/v1/events/batch",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/analytics-service/src/routes/analytics.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "analytics-service",
+      "servicePath": "/health",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Health check",
+      "source": "analytics-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "analytics-service",
+      "servicePath": "/metrics",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Prometheus metrics",
+      "source": "analytics-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "analytics-service",
+      "servicePath": "/ready",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Readiness check",
+      "source": "analytics-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/packages",
+      "gatewayPath": "/v1/packages",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/package.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/packages/:id",
+      "gatewayPath": "/v1/packages/:id",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/package.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/packages",
+      "gatewayPath": "/v1/packages",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/package.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "billing-service",
+      "servicePath": "/v1/packages/:id",
+      "gatewayPath": "/v1/packages/:id",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/billing-service/src/routes/package.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "billing-service",
+      "servicePath": "/v1/packages/:id",
+      "gatewayPath": "/v1/packages/:id",
+      "auth": "public",
+      "purpose": "Delete resource",
+      "source": "services/billing-service/src/routes/package.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/packages/admin",
+      "gatewayPath": "/v1/packages/admin",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/package.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "billing-service",
+      "servicePath": "/v1/packages/admin/:id",
+      "gatewayPath": "/v1/packages/admin/:id",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/billing-service/src/routes/package.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "billing-service",
+      "servicePath": "/v1/packages/admin/:id",
+      "gatewayPath": "/v1/packages/admin/:id",
+      "auth": "public",
+      "purpose": "Delete resource",
+      "source": "services/billing-service/src/routes/package.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/subscriptions",
+      "gatewayPath": "/v1/subscriptions",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/subscription.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/subscriptions",
+      "gatewayPath": "/v1/subscriptions",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/subscription.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/subscriptions/:id",
+      "gatewayPath": "/v1/subscriptions/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/subscription.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/subscriptions/:id/cancel",
+      "gatewayPath": "/v1/subscriptions/:id/cancel",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/subscription.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/payments/initiate",
+      "gatewayPath": "/v1/payments/initiate",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/payment.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/payments",
+      "gatewayPath": "/v1/payments",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/payment.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/payments/:id/retry",
+      "gatewayPath": "/v1/payments/:id/retry",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/payment.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/payments/:id",
+      "gatewayPath": "/v1/payments/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/payment.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/payments/:id/refund",
+      "gatewayPath": "/v1/payments/:id/refund",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/payment.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/invoices",
+      "gatewayPath": "/v1/invoices",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/invoice.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/invoices/:id",
+      "gatewayPath": "/v1/invoices/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/invoice.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/refunds",
+      "gatewayPath": "/v1/refunds",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/refund.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/refunds/:id",
+      "gatewayPath": "/v1/refunds/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/refund.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/webhooks/razorpay",
+      "gatewayPath": "/v1/webhooks/razorpay",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/webhook.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/webhooks/stripe",
+      "gatewayPath": "/v1/webhooks/stripe",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/webhook.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/webhooks/shiprocket",
+      "gatewayPath": "/v1/webhooks/shiprocket",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/webhook.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/coupons",
+      "gatewayPath": "/v1/coupons",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/coupon.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/coupons/validate",
+      "gatewayPath": "/v1/coupons/validate",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/coupon.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/coupons",
+      "gatewayPath": "/v1/coupons",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/coupon.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "billing-service",
+      "servicePath": "/v1/coupons/:couponId",
+      "gatewayPath": "/v1/coupons/:couponId",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/billing-service/src/routes/coupon.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "billing-service",
+      "servicePath": "/v1/coupons/:couponId",
+      "gatewayPath": "/v1/coupons/:couponId",
+      "auth": "public",
+      "purpose": "Delete resource",
+      "source": "services/billing-service/src/routes/coupon.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/v1/admin/webhooks/logs",
+      "gatewayPath": "/v1/admin/webhooks/logs",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/billing-service/src/routes/admin.webhooks.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "billing-service",
+      "servicePath": "/v1/admin/webhooks/replay",
+      "gatewayPath": "/v1/admin/webhooks/replay",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/billing-service/src/routes/admin.webhooks.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/health",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Health check",
+      "source": "billing-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/metrics",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Prometheus metrics",
+      "source": "billing-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "billing-service",
+      "servicePath": "/ready",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Readiness check",
+      "source": "billing-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/countries",
+      "gatewayPath": "/v1/geo/countries",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/states",
+      "gatewayPath": "/v1/geo/states",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/cities",
+      "gatewayPath": "/v1/geo/cities",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/cities/:id",
+      "gatewayPath": "/v1/geo/cities/:id",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/localities",
+      "gatewayPath": "/v1/geo/localities",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/localities/:id",
+      "gatewayPath": "/v1/geo/localities/:id",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/localities/:id/polygon",
+      "gatewayPath": "/v1/geo/localities/:id/polygon",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/geocode",
+      "gatewayPath": "/v1/geo/geocode",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/reverse-geocode",
+      "gatewayPath": "/v1/geo/reverse-geocode",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/nearby",
+      "gatewayPath": "/v1/geo/nearby",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/pois",
+      "gatewayPath": "/v1/geo/pois",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/pois/:poiId",
+      "gatewayPath": "/v1/geo/pois/:poiId",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/clusters",
+      "gatewayPath": "/v1/geo/clusters",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/admin/cities",
+      "gatewayPath": "/v1/geo/admin/cities",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/admin/cities/:id",
+      "gatewayPath": "/v1/geo/admin/cities/:id",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/admin/localities",
+      "gatewayPath": "/v1/geo/admin/localities",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/admin/localities/:id",
+      "gatewayPath": "/v1/geo/admin/localities/:id",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/admin/pois",
+      "gatewayPath": "/v1/geo/admin/pois",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "geo-service",
+      "servicePath": "/v1/geo/admin/pois/:id",
+      "gatewayPath": "/v1/geo/admin/pois/:id",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/geo-service/src/routes/geo.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/health",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Health check",
+      "source": "geo-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/metrics",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Prometheus metrics",
+      "source": "geo-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "geo-service",
+      "servicePath": "/ready",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Readiness check",
+      "source": "geo-service:app.js"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/v1/leads",
+      "gatewayPath": "/v1/leads",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "lead-service",
+      "servicePath": "/v1/leads",
+      "gatewayPath": "/v1/leads",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id",
+      "gatewayPath": "/v1/leads/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id",
+      "gatewayPath": "/v1/leads/:id",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/assign",
+      "gatewayPath": "/v1/leads/:id/assign",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/spam",
+      "gatewayPath": "/v1/leads/:id/spam",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/unspam",
+      "gatewayPath": "/v1/leads/:id/unspam",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/notes",
+      "gatewayPath": "/v1/leads/:id/notes",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/notes",
+      "gatewayPath": "/v1/leads/:id/notes",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/appointment",
+      "gatewayPath": "/v1/leads/:id/appointment",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/appointment",
+      "gatewayPath": "/v1/leads/:id/appointment",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/appointment",
+      "gatewayPath": "/v1/leads/:id/appointment",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/appointment",
+      "gatewayPath": "/v1/leads/:id/appointment",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/:id/call/request",
+      "gatewayPath": "/v1/leads/:id/call/request",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "lead-service",
+      "servicePath": "/v1/leads/metrics/summary",
+      "gatewayPath": "/v1/leads/metrics/summary",
+      "auth": "required",
+      "purpose": "Prometheus metrics",
+      "source": "services/lead-service/src/routes/lead.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/v1/webhooks/partner/leads",
+      "gatewayPath": "/v1/webhooks/partner/leads",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/webhook.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "lead-service",
+      "servicePath": "/internal/v1/leads/deliver",
+      "gatewayPath": "/internal/v1/leads/deliver",
+      "auth": "internal",
+      "purpose": "Create or action",
+      "source": "services/lead-service/src/routes/internal.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "lead-service",
+      "servicePath": "/health",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Health check",
+      "source": "lead-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "lead-service",
+      "servicePath": "/metrics",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Prometheus metrics",
+      "source": "lead-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "lead-service",
+      "servicePath": "/ready",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Readiness check",
+      "source": "lead-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "media-service",
+      "servicePath": "/v1/media/:id",
+      "gatewayPath": "/v1/media/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/media-service/src/routes/media.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "media-service",
+      "servicePath": "/v1/media/:id/renditions",
+      "gatewayPath": "/v1/media/:id/renditions",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/media-service/src/routes/media.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "media-service",
+      "servicePath": "/v1/media/presign",
+      "gatewayPath": "/v1/media/presign",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/media-service/src/routes/media.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "media-service",
+      "servicePath": "/v1/media/complete",
+      "gatewayPath": "/v1/media/complete",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/media-service/src/routes/media.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "media-service",
+      "servicePath": "/v1/media",
+      "gatewayPath": "/v1/media",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/media-service/src/routes/media.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "media-service",
+      "servicePath": "/v1/media/:id",
+      "gatewayPath": "/v1/media/:id",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/media-service/src/routes/media.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "media-service",
+      "servicePath": "/v1/media/:id/usage",
+      "gatewayPath": "/v1/media/:id/usage",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/media-service/src/routes/media.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "media-service",
+      "servicePath": "/v1/media/:id/usage",
+      "gatewayPath": "/v1/media/:id/usage",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/media-service/src/routes/media.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "media-service",
+      "servicePath": "/v1/media/:id/reprocess",
+      "gatewayPath": "/v1/media/:id/reprocess",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/media-service/src/routes/media.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "media-service",
+      "servicePath": "/v1/media/admin/:id/reprocess",
+      "gatewayPath": "/v1/media/admin/:id/reprocess",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/media-service/src/routes/media.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "media-service",
+      "servicePath": "/v1/media/admin/failed",
+      "gatewayPath": "/v1/media/admin/failed",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/media-service/src/routes/media.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "media-service",
+      "servicePath": "/v1/media/admin/:id/override",
+      "gatewayPath": "/v1/media/admin/:id/override",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/media-service/src/routes/media.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "media-service",
+      "servicePath": "/health",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Health check",
+      "source": "media-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "media-service",
+      "servicePath": "/metrics",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Prometheus metrics",
+      "source": "media-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "media-service",
+      "servicePath": "/ready",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Readiness check",
+      "source": "media-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/queue",
+      "gatewayPath": "/v1/admin/moderation/queue",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/moderation.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/queue/:taskId",
+      "gatewayPath": "/v1/admin/moderation/queue/:taskId",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/moderation.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/:taskId/claim",
+      "gatewayPath": "/v1/admin/moderation/:taskId/claim",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/moderation.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/:taskId/release",
+      "gatewayPath": "/v1/admin/moderation/:taskId/release",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/moderation.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/:taskId/decision",
+      "gatewayPath": "/v1/admin/moderation/:taskId/decision",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/moderation.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/:taskId/comment",
+      "gatewayPath": "/v1/admin/moderation/:taskId/comment",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/moderation.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/stats",
+      "gatewayPath": "/v1/admin/moderation/stats",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/moderation.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/blacklist",
+      "gatewayPath": "/v1/admin/moderation/blacklist",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/moderation.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/rules",
+      "gatewayPath": "/v1/admin/moderation/rules",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/rules.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/rules",
+      "gatewayPath": "/v1/admin/moderation/rules",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/rules.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/rules/:id",
+      "gatewayPath": "/v1/admin/moderation/rules/:id",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/moderation-service/src/routes/rules.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/moderation/rules/:id",
+      "gatewayPath": "/v1/admin/moderation/rules/:id",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/moderation-service/src/routes/rules.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/reports",
+      "gatewayPath": "/v1/reports",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/report.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/reports",
+      "gatewayPath": "/v1/reports",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/report.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/reports/:reportId",
+      "gatewayPath": "/v1/reports/:reportId",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/report.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/reviews",
+      "gatewayPath": "/v1/reviews",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/review.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/reviews",
+      "gatewayPath": "/v1/reviews",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/review.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/reviews/:reviewId",
+      "gatewayPath": "/v1/reviews/:reviewId",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/review.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "moderation-service",
+      "servicePath": "/v1/reviews/:reviewId",
+      "gatewayPath": "/v1/reviews/:reviewId",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/moderation-service/src/routes/review.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "moderation-service",
+      "servicePath": "/v1/reviews/:reviewId",
+      "gatewayPath": "/v1/reviews/:reviewId",
+      "auth": "public",
+      "purpose": "Delete resource",
+      "source": "services/moderation-service/src/routes/review.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/reports/queue",
+      "gatewayPath": "/v1/admin/reports/queue",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/admin.reports.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/reports/:reportId/decision",
+      "gatewayPath": "/v1/admin/reports/:reportId/decision",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/admin.reports.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/reviews/queue",
+      "gatewayPath": "/v1/admin/reviews/queue",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/admin.reviews.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/reviews/:reviewId/decision",
+      "gatewayPath": "/v1/admin/reviews/:reviewId/decision",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/admin.reviews.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/blacklist",
+      "gatewayPath": "/v1/admin/blacklist",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/blacklist.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/blacklist/:entryId",
+      "gatewayPath": "/v1/admin/blacklist/:entryId",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/blacklist.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/blacklist",
+      "gatewayPath": "/v1/admin/blacklist",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/blacklist.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/blacklist/:entryId",
+      "gatewayPath": "/v1/admin/blacklist/:entryId",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/moderation-service/src/routes/blacklist.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/blacklist/:entryId",
+      "gatewayPath": "/v1/admin/blacklist/:entryId",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/moderation-service/src/routes/blacklist.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/fraud/signals",
+      "gatewayPath": "/v1/admin/fraud/signals",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/fraud.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/fraud/score",
+      "gatewayPath": "/v1/admin/fraud/score",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/moderation-service/src/routes/fraud.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "moderation-service",
+      "servicePath": "/v1/admin/fraud/score/recompute",
+      "gatewayPath": "/v1/admin/fraud/score/recompute",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/moderation-service/src/routes/fraud.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/health",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Health check",
+      "source": "moderation-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/metrics",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Prometheus metrics",
+      "source": "moderation-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "moderation-service",
+      "servicePath": "/ready",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Readiness check",
+      "source": "moderation-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "notification-service",
+      "servicePath": "/v1/notifications",
+      "gatewayPath": "/v1/notifications",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/notification-service/src/routes/notification.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "notification-service",
+      "servicePath": "/v1/notifications/:id",
+      "gatewayPath": "/v1/notifications/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/notification-service/src/routes/notification.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "notification-service",
+      "servicePath": "/v1/notifications/:id",
+      "gatewayPath": "/v1/notifications/:id",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/notification-service/src/routes/notification.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "notification-service",
+      "servicePath": "/v1/notifications/mark-all-read",
+      "gatewayPath": "/v1/notifications/mark-all-read",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/notification-service/src/routes/notification.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "notification-service",
+      "servicePath": "/v1/admin/notification-templates",
+      "gatewayPath": "/v1/admin/notification-templates",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/notification-service/src/routes/template.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "notification-service",
+      "servicePath": "/v1/admin/notification-templates/:id",
+      "gatewayPath": "/v1/admin/notification-templates/:id",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/notification-service/src/routes/template.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "notification-service",
+      "servicePath": "/v1/admin/notification-templates",
+      "gatewayPath": "/v1/admin/notification-templates",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/notification-service/src/routes/template.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "notification-service",
+      "servicePath": "/v1/admin/notification-templates/:id",
+      "gatewayPath": "/v1/admin/notification-templates/:id",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/notification-service/src/routes/template.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "notification-service",
+      "servicePath": "/v1/admin/notification-templates/:id",
+      "gatewayPath": "/v1/admin/notification-templates/:id",
+      "auth": "admin",
+      "purpose": "Delete resource",
+      "source": "services/notification-service/src/routes/template.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "notification-service",
+      "servicePath": "/internal/v1/notifications/send",
+      "gatewayPath": "/internal/v1/notifications/send",
+      "auth": "internal",
+      "purpose": "Create or action",
+      "source": "services/notification-service/src/routes/internal.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "notification-service",
+      "servicePath": "/health",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Health check",
+      "source": "notification-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "notification-service",
+      "servicePath": "/metrics",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Prometheus metrics",
+      "source": "notification-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "notification-service",
+      "servicePath": "/ready",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Readiness check",
+      "source": "notification-service:app.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs",
+      "gatewayPath": "/v1/orgs",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/orgs",
+      "gatewayPath": "/v1/orgs",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId",
+      "gatewayPath": "/v1/orgs/:orgId",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId",
+      "gatewayPath": "/v1/orgs/:orgId",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/logo",
+      "gatewayPath": "/v1/orgs/:orgId/logo",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/verification/approve",
+      "gatewayPath": "/v1/orgs/:orgId/verification/approve",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/verification/reject",
+      "gatewayPath": "/v1/orgs/:orgId/verification/reject",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/verification/request-changes",
+      "gatewayPath": "/v1/orgs/:orgId/verification/request-changes",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/kyc",
+      "gatewayPath": "/v1/orgs/:orgId/kyc",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/kyc.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/kyc",
+      "gatewayPath": "/v1/orgs/:orgId/kyc",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/kyc.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/kyc/:kycId",
+      "gatewayPath": "/v1/orgs/:orgId/kyc/:kycId",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/kyc.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/kyc/:kycId",
+      "gatewayPath": "/v1/orgs/:orgId/kyc/:kycId",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/org-service/src/routes/kyc.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/kyc/:kycId/withdraw",
+      "gatewayPath": "/v1/orgs/:orgId/kyc/:kycId/withdraw",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/kyc.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/verification/status",
+      "gatewayPath": "/v1/orgs/:orgId/verification/status",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/kyc.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/members",
+      "gatewayPath": "/v1/orgs/:orgId/members",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/member.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/members",
+      "gatewayPath": "/v1/orgs/:orgId/members",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/member.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/members/:memberId",
+      "gatewayPath": "/v1/orgs/:orgId/members/:memberId",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/member.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/members/:memberId",
+      "gatewayPath": "/v1/orgs/:orgId/members/:memberId",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/org-service/src/routes/member.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/members/:memberId",
+      "gatewayPath": "/v1/orgs/:orgId/members/:memberId",
+      "auth": "public",
+      "purpose": "Delete resource",
+      "source": "services/org-service/src/routes/member.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/members/:memberId/resend-invite",
+      "gatewayPath": "/v1/orgs/:orgId/members/:memberId/resend-invite",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/member.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/teams",
+      "gatewayPath": "/v1/orgs/:orgId/teams",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/team.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/teams",
+      "gatewayPath": "/v1/orgs/:orgId/teams",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/team.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/teams/:teamId",
+      "gatewayPath": "/v1/orgs/:orgId/teams/:teamId",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/team.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/teams/:teamId",
+      "gatewayPath": "/v1/orgs/:orgId/teams/:teamId",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/org-service/src/routes/team.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "org-service",
+      "servicePath": "/v1/orgs/:orgId/teams/:teamId",
+      "gatewayPath": "/v1/orgs/:orgId/teams/:teamId",
+      "auth": "public",
+      "purpose": "Delete resource",
+      "source": "services/org-service/src/routes/team.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/admin/orgs",
+      "gatewayPath": "/v1/admin/orgs",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/admin/orgs",
+      "gatewayPath": "/v1/admin/orgs",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/v1/admin/orgs/:orgId",
+      "gatewayPath": "/v1/admin/orgs/:orgId",
+      "auth": "admin",
+      "purpose": "Fetch resource",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "org-service",
+      "servicePath": "/v1/admin/orgs/:orgId",
+      "gatewayPath": "/v1/admin/orgs/:orgId",
+      "auth": "admin",
+      "purpose": "Update resource",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/admin/orgs/:orgId/logo",
+      "gatewayPath": "/v1/admin/orgs/:orgId/logo",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/admin/orgs/:orgId/verification/approve",
+      "gatewayPath": "/v1/admin/orgs/:orgId/verification/approve",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/admin/orgs/:orgId/verification/reject",
+      "gatewayPath": "/v1/admin/orgs/:orgId/verification/reject",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "org-service",
+      "servicePath": "/v1/admin/orgs/:orgId/verification/request-changes",
+      "gatewayPath": "/v1/admin/orgs/:orgId/verification/request-changes",
+      "auth": "admin",
+      "purpose": "Create or action",
+      "source": "services/org-service/src/routes/org.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/health",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Health check",
+      "source": "org-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/metrics",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Prometheus metrics",
+      "source": "org-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "org-service",
+      "servicePath": "/ready",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Readiness check",
+      "source": "org-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/properties",
+      "gatewayPath": "/v1/properties",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id",
+      "gatewayPath": "/v1/properties/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties",
+      "gatewayPath": "/v1/properties",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id",
+      "gatewayPath": "/v1/properties/:id",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id",
+      "gatewayPath": "/v1/properties/:id",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/properties/me/list",
+      "gatewayPath": "/v1/properties/me/list",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/submit",
+      "gatewayPath": "/v1/properties/:id/submit",
+      "auth": "required",
+      "purpose": "Submit for review",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/resubmit",
+      "gatewayPath": "/v1/properties/:id/resubmit",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/unpublish",
+      "gatewayPath": "/v1/properties/:id/unpublish",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/archive",
+      "gatewayPath": "/v1/properties/:id/archive",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/restore",
+      "gatewayPath": "/v1/properties/:id/restore",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/mark-sold",
+      "gatewayPath": "/v1/properties/:id/mark-sold",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/mark-rented",
+      "gatewayPath": "/v1/properties/:id/mark-rented",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/refresh",
+      "gatewayPath": "/v1/properties/:id/refresh",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/versions",
+      "gatewayPath": "/v1/properties/:id/versions",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/audit",
+      "gatewayPath": "/v1/properties/:id/audit",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/media",
+      "gatewayPath": "/v1/properties/:id/media",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/media/order",
+      "gatewayPath": "/v1/properties/:id/media/order",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/media/:mediaId",
+      "gatewayPath": "/v1/properties/:id/media/:mediaId",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/documents",
+      "gatewayPath": "/v1/properties/:id/documents",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/documents/:docId",
+      "gatewayPath": "/v1/properties/:id/documents/:docId",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/similar",
+      "gatewayPath": "/v1/properties/:id/similar",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/duplicate/check",
+      "gatewayPath": "/v1/properties/:id/duplicate/check",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/batch",
+      "gatewayPath": "/v1/properties/batch",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/contact-options",
+      "gatewayPath": "/v1/properties/:id/contact-options",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/publish",
+      "gatewayPath": "/v1/properties/:id/publish",
+      "auth": "required",
+      "purpose": "Publish",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/properties/:id/expire",
+      "gatewayPath": "/v1/properties/:id/expire",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/property.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/projects",
+      "gatewayPath": "/v1/projects",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/projects",
+      "gatewayPath": "/v1/projects",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId",
+      "gatewayPath": "/v1/projects/:projectId",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId",
+      "gatewayPath": "/v1/projects/:projectId",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId",
+      "gatewayPath": "/v1/projects/:projectId",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/submit",
+      "gatewayPath": "/v1/projects/:projectId/submit",
+      "auth": "required",
+      "purpose": "Submit for review",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/publish",
+      "gatewayPath": "/v1/projects/:projectId/publish",
+      "auth": "required",
+      "purpose": "Publish",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/media",
+      "gatewayPath": "/v1/projects/:projectId/media",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/media/order",
+      "gatewayPath": "/v1/projects/:projectId/media/order",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/media/:mediaId",
+      "gatewayPath": "/v1/projects/:projectId/media/:mediaId",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/brochure",
+      "gatewayPath": "/v1/projects/:projectId/brochure",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/inventory/units",
+      "gatewayPath": "/v1/projects/:projectId/inventory/units",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/inventory/units",
+      "gatewayPath": "/v1/projects/:projectId/inventory/units",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/inventory/units/:unitId",
+      "gatewayPath": "/v1/projects/:projectId/inventory/units/:unitId",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/inventory/units/:unitId",
+      "gatewayPath": "/v1/projects/:projectId/inventory/units/:unitId",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/inventory/units/:unitId",
+      "gatewayPath": "/v1/projects/:projectId/inventory/units/:unitId",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/inventory/import",
+      "gatewayPath": "/v1/projects/:projectId/inventory/import",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/v1/projects/:projectId/inventory/import/:jobId",
+      "gatewayPath": "/v1/projects/:projectId/inventory/import/:jobId",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/property-service/src/routes/project.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/health",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Health check",
+      "source": "property-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/metrics",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Prometheus metrics",
+      "source": "property-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "property-service",
+      "servicePath": "/ready",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Readiness check",
+      "source": "property-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "search-service",
+      "servicePath": "/v1/search/properties",
+      "gatewayPath": "/v1/search/properties",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/search-service/src/routes/search.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "search-service",
+      "servicePath": "/v1/search/map",
+      "gatewayPath": "/v1/search/map",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/search-service/src/routes/search.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "search-service",
+      "servicePath": "/v1/search/suggest",
+      "gatewayPath": "/v1/search/suggest",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/search-service/src/routes/search.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "search-service",
+      "servicePath": "/v1/search/filters",
+      "gatewayPath": "/v1/search/filters",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/search-service/src/routes/search.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "search-service",
+      "servicePath": "/v1/search/trending",
+      "gatewayPath": "/v1/search/trending",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/search-service/src/routes/search.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "search-service",
+      "servicePath": "/v1/search/recent",
+      "gatewayPath": "/v1/search/recent",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/search-service/src/routes/search.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "search-service",
+      "servicePath": "/v1/search/recent",
+      "gatewayPath": "/v1/search/recent",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/search-service/src/routes/search.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "search-service",
+      "servicePath": "/v1/search/admin/reindex",
+      "gatewayPath": "/v1/search/admin/reindex",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/search-service/src/routes/search.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "search-service",
+      "servicePath": "/v1/search/admin/reindex/:taskId",
+      "gatewayPath": "/v1/search/admin/reindex/:taskId",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/search-service/src/routes/search.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "search-service",
+      "servicePath": "/v1/search/admin/index/health",
+      "gatewayPath": "/v1/search/admin/index/health",
+      "auth": "required",
+      "purpose": "Health check",
+      "source": "services/search-service/src/routes/search.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "search-service",
+      "servicePath": "/internal/v1/search/index",
+      "gatewayPath": "/internal/v1/search/index",
+      "auth": "internal",
+      "purpose": "Create or action",
+      "source": "services/search-service/src/routes/internal.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "search-service",
+      "servicePath": "/health",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Health check",
+      "source": "search-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "search-service",
+      "servicePath": "/metrics",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Prometheus metrics",
+      "source": "search-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "search-service",
+      "servicePath": "/ready",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Readiness check",
+      "source": "search-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/shortlists",
+      "gatewayPath": "/v1/shortlists",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/user-interactions-service/src/routes/shortlist.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/shortlists",
+      "gatewayPath": "/v1/shortlists",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/user-interactions-service/src/routes/shortlist.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/shortlists/:id",
+      "gatewayPath": "/v1/shortlists/:id",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/user-interactions-service/src/routes/shortlist.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/shortlists/bulk",
+      "gatewayPath": "/v1/shortlists/bulk",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/user-interactions-service/src/routes/shortlist.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/saved-searches",
+      "gatewayPath": "/v1/saved-searches",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/user-interactions-service/src/routes/saved-search.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/saved-searches",
+      "gatewayPath": "/v1/saved-searches",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/user-interactions-service/src/routes/saved-search.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/saved-searches/:id",
+      "gatewayPath": "/v1/saved-searches/:id",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/user-interactions-service/src/routes/saved-search.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/saved-searches/:id",
+      "gatewayPath": "/v1/saved-searches/:id",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/user-interactions-service/src/routes/saved-search.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/saved-searches/:id",
+      "gatewayPath": "/v1/saved-searches/:id",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/user-interactions-service/src/routes/saved-search.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/alerts/price",
+      "gatewayPath": "/v1/alerts/price",
+      "auth": "required",
+      "purpose": "Fetch resource",
+      "source": "services/user-interactions-service/src/routes/price-alert.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/alerts/price",
+      "gatewayPath": "/v1/alerts/price",
+      "auth": "required",
+      "purpose": "Create or action",
+      "source": "services/user-interactions-service/src/routes/price-alert.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/alerts/price/:id",
+      "gatewayPath": "/v1/alerts/price/:id",
+      "auth": "required",
+      "purpose": "Update resource",
+      "source": "services/user-interactions-service/src/routes/price-alert.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "user-interactions-service",
+      "servicePath": "/v1/alerts/price/:id",
+      "gatewayPath": "/v1/alerts/price/:id",
+      "auth": "required",
+      "purpose": "Delete resource",
+      "source": "services/user-interactions-service/src/routes/price-alert.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-interactions-service",
+      "servicePath": "/health",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Health check",
+      "source": "user-interactions-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-interactions-service",
+      "servicePath": "/metrics",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Prometheus metrics",
+      "source": "user-interactions-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-interactions-service",
+      "servicePath": "/ready",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Readiness check",
+      "source": "user-interactions-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/v1/auth",
+      "gatewayPath": "/v1/auth",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/user-service/src/routes/auth.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/v1/auth/public-keys",
+      "gatewayPath": "/v1/auth/public-keys",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/user-service/src/routes/auth.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/auth/otp/request",
+      "gatewayPath": "/v1/auth/otp/request",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/auth.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/auth/otp/verify",
+      "gatewayPath": "/v1/auth/otp/verify",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/auth.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/auth/password/login",
+      "gatewayPath": "/v1/auth/password/login",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/auth.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/auth/password/reset/request",
+      "gatewayPath": "/v1/auth/password/reset/request",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/auth.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/auth/password/reset/confirm",
+      "gatewayPath": "/v1/auth/password/reset/confirm",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/auth.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/auth/refresh",
+      "gatewayPath": "/v1/auth/refresh",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/auth.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/auth/logout",
+      "gatewayPath": "/v1/auth/logout",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/auth.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/v1/auth/sessions",
+      "gatewayPath": "/v1/auth/sessions",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/user-service/src/routes/auth.routes.js"
+    },
+    {
+      "method": "DELETE",
+      "service": "user-service",
+      "servicePath": "/v1/auth/sessions/:sessionId",
+      "gatewayPath": "/v1/auth/sessions/:sessionId",
+      "auth": "public",
+      "purpose": "Delete resource",
+      "source": "services/user-service/src/routes/auth.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/auth/mfa/enable",
+      "gatewayPath": "/v1/auth/mfa/enable",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/auth.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/auth/mfa/verify",
+      "gatewayPath": "/v1/auth/mfa/verify",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/auth.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/auth/mfa/disable",
+      "gatewayPath": "/v1/auth/mfa/disable",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/auth.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/v1/users/me",
+      "gatewayPath": "/v1/users/me",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "user-service",
+      "servicePath": "/v1/users/me",
+      "gatewayPath": "/v1/users/me",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/v1/users/me/preferences",
+      "gatewayPath": "/v1/users/me/preferences",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "user-service",
+      "servicePath": "/v1/users/me/preferences",
+      "gatewayPath": "/v1/users/me/preferences",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/v1/users/me/consents",
+      "gatewayPath": "/v1/users/me/consents",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "user-service",
+      "servicePath": "/v1/users/me/consents",
+      "gatewayPath": "/v1/users/me/consents",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/v1/users/me/security",
+      "gatewayPath": "/v1/users/me/security",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "user-service",
+      "servicePath": "/v1/users/me/security",
+      "gatewayPath": "/v1/users/me/security",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/v1/users/me/activity",
+      "gatewayPath": "/v1/users/me/activity",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/users/me/deactivate",
+      "gatewayPath": "/v1/users/me/deactivate",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/users/me/delete/request",
+      "gatewayPath": "/v1/users/me/delete/request",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/users/me/delete/confirm",
+      "gatewayPath": "/v1/users/me/delete/confirm",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/v1/users/me/export",
+      "gatewayPath": "/v1/users/me/export",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/users/me/verify-email",
+      "gatewayPath": "/v1/users/me/verify-email",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/users/me/verify-phone",
+      "gatewayPath": "/v1/users/me/verify-phone",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/v1/users/:userId",
+      "gatewayPath": "/v1/users/:userId",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/v1/users",
+      "gatewayPath": "/v1/users",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "PATCH",
+      "service": "user-service",
+      "servicePath": "/v1/users/:userId",
+      "gatewayPath": "/v1/users/:userId",
+      "auth": "public",
+      "purpose": "Update resource",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/users/:userId/block",
+      "gatewayPath": "/v1/users/:userId/block",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "POST",
+      "service": "user-service",
+      "servicePath": "/v1/users/:userId/unblock",
+      "gatewayPath": "/v1/users/:userId/unblock",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/user-service/src/routes/user.routes.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/health",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Health check",
+      "source": "user-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/metrics",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Prometheus metrics",
+      "source": "user-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "user-service",
+      "servicePath": "/ready",
+      "gatewayPath": null,
+      "auth": "public",
+      "purpose": "Readiness check",
+      "source": "user-service:app.js"
+    },
+    {
+      "method": "GET",
+      "service": "api-gateway",
+      "servicePath": "/properties",
+      "gatewayPath": "/v1/properties",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/api-gateway/src/routes/index.js"
+    },
+    {
+      "method": "GET",
+      "service": "api-gateway",
+      "servicePath": "/properties/:id",
+      "gatewayPath": "/v1/properties/:id",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/api-gateway/src/routes/index.js"
+    },
+    {
+      "method": "GET",
+      "service": "api-gateway",
+      "servicePath": "/media/:id",
+      "gatewayPath": "/v1/media/:id",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/api-gateway/src/routes/index.js"
+    },
+    {
+      "method": "GET",
+      "service": "api-gateway",
+      "servicePath": "/media/:id/renditions",
+      "gatewayPath": "/v1/media/:id/renditions",
+      "auth": "public",
+      "purpose": "Fetch resource",
+      "source": "services/api-gateway/src/routes/index.js"
+    },
+    {
+      "method": "POST",
+      "service": "api-gateway",
+      "servicePath": "/cache/invalidate",
+      "gatewayPath": "/v1/cache/invalidate",
+      "auth": "public",
+      "purpose": "Create or action",
+      "source": "services/api-gateway/src/routes/internal.routes.js"
+    }
+  ]
+}

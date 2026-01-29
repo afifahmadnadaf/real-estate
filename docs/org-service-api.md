@@ -64,6 +64,17 @@
 - **Response**:
   - `200 { status: 'PENDING'|'VERIFIED'|'REJECTED'|'CHANGES_REQUESTED', details? }`.
 
+### 2.7 Verification Actions (`/v1/orgs/{orgId}/verification/*`)
+
+These are invoked by admin tooling but are mounted on the org router, so they exist under the user path as well:
+
+- **`POST /v1/orgs/{orgId}/verification/approve`**
+- **`POST /v1/orgs/{orgId}/verification/reject`**
+- **`POST /v1/orgs/{orgId}/verification/request-changes`**
+  - **Body**:
+    - `changes` (array, required, min 1):
+      - `{ field: string, message: string }`
+
 ---
 
 ## 3. Members (`/v1/orgs/{orgId}/members*`)
@@ -115,14 +126,55 @@
 
 ## 5. Admin Org Verification (via `/v1/admin/orgs/*`)
 
-Underlying `org.routes.js` exposes:
+The service mounts the same org router under both `/v1/orgs/*` and `/v1/admin/orgs/*` (admin UI paths).
 
-- **`POST /v1/orgs/{orgId}/verification/approve`**
-- **`POST /v1/orgs/{orgId}/verification/reject`**
-- **`POST /v1/orgs/{orgId}/verification/request-changes`**
-  - **Body** (for request-changes): `requestChangesSchema` – includes change reasons/notes.
+### 5.1 Admin Org Management (`/v1/admin/orgs`)
 
-Gateway rewrites these under `/v1/admin/orgs/{orgId}/verification/*` for admin UI.
+#### `GET /v1/admin/orgs`
+- **Auth**: admin.
+- **Description**: List organizations with admin filters/pagination (implementation-defined).
+
+#### `GET /v1/admin/orgs/{orgId}`
+- **Auth**: admin.
+- **Params**:
+  - `orgId` (string, required)
+
+#### `POST /v1/admin/orgs`
+- **Auth**: admin.
+- **Headers**:
+  - `Content-Type: application/json`
+- **Body** (same as `POST /v1/orgs`):
+  - `name` (string, 2–200, required)
+  - `type` (string, required): `AGENT_FIRM | BUILDER | INDIVIDUAL_AGENT`
+  - `description` (string ≤2000, optional)
+  - `website` (string uri, optional, nullable/empty allowed)
+  - `contactEmail` (string email, optional)
+  - `contactPhone` (string, optional)
+  - `address` (object, optional): `{ line1?, line2?, city?, state?, pincode?, country? }`
+  - `reraNumbers` (string[], optional)
+  - `gstNumber`, `panNumber` (string, optional, nullable/empty allowed)
+  - `establishedYear` (number, 1900–currentYear, optional)
+  - `employeeCount` (number ≥ 1, optional)
+
+#### `PATCH /v1/admin/orgs/{orgId}`
+- **Auth**: admin.
+- **Body**: any subset of the create fields (same constraints; nullable/empty allowed where supported).
+
+#### `POST /v1/admin/orgs/{orgId}/logo`
+- **Auth**: admin.
+- **Body**:
+  - `mediaId` (string, required)
+
+### 5.2 Admin Verification Actions
+
+These are available both under user path `/v1/orgs/{orgId}/verification/*` and admin UI path `/v1/admin/orgs/{orgId}/verification/*`.
+
+- **`POST /v1/admin/orgs/{orgId}/verification/approve`**
+- **`POST /v1/admin/orgs/{orgId}/verification/reject`**
+- **`POST /v1/admin/orgs/{orgId}/verification/request-changes`**
+  - **Body**:
+    - `changes` (array, required, min 1):
+      - `{ field: string, message: string }`
 
 ---
 

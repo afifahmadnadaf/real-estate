@@ -68,6 +68,12 @@ Mounted in `moderation.routes.js`, protected by admin auth (gateway).
 ### 2.7 `GET /v1/admin/moderation/stats`
 - **Description**: Moderation statistics (SLAs, queue sizes, decision split).
 
+### 2.8 `GET /v1/admin/moderation/blacklist`
+- **Description**: Convenience endpoint to view current blacklist items from the moderation dashboard.
+- **Auth**: admin.
+- **Response**:
+  - `200 { success: true, data: any }` (service-defined list/pagination).
+
 ---
 
 ## 3. Admin Rules & Fraud/Blacklist
@@ -96,6 +102,33 @@ Underlying `blacklist.routes.js` implements:
   - Update entry fields.
 - `DELETE /v1/admin/blacklist/{entryId}`
   - Delete entry.
+
+### 3.3 Fraud Signals & Scoring (`/v1/admin/fraud/*`)
+
+These are admin-only and additionally require `X-User-Role: ADMIN` (set by gateway for admin sessions).
+
+#### `GET /v1/admin/fraud/signals`
+- **Query**:
+  - `entityType` (string, optional)
+  - `entityId` (string, optional)
+  - `limit` (int, optional, default 100)
+- **Response**:
+  - `200 { success: true, data: Signal[] }`
+
+#### `GET /v1/admin/fraud/score`
+- **Query**:
+  - `entityType` (string, required)
+  - `entityId` (string, required)
+- **Response**:
+  - `200 { success: true, data: { score: number, ... } }` (service-defined)
+
+#### `POST /v1/admin/fraud/score/recompute`
+- **Body**:
+  - `entityType` (string, required)
+  - `entityId` (string, required)
+- **Response**:
+  - `200 { success: true, data: { score: number, ... } }`
+  - `400` if `entityType` or `entityId` missing.
 
 ---
 

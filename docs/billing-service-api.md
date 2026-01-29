@@ -54,6 +54,18 @@ These are protected at gateway (`/v1/admin/packages/*`) but the underlying servi
 - **Description**:
   - Update or delete package.
 
+#### Backward-compatible admin routes (`/v1/packages/admin/*`)
+
+- **`POST /v1/packages/admin`**
+  - **Auth**: admin.
+  - **Body**: same as `POST /v1/packages`.
+- **`PATCH /v1/packages/admin/{id}`**
+  - **Auth**: admin.
+  - **Params**: `id` (string, required).
+- **`DELETE /v1/packages/admin/{id}`**
+  - **Auth**: admin.
+  - **Params**: `id` (string, required).
+
 ---
 
 ## 2. Subscriptions (`/v1/subscriptions`)
@@ -150,7 +162,19 @@ Public list for discovery + admin management.
 - **Auth**: optional.
 - **Description**: List active coupons.
 
-### 6.2 Admin Coupon Management
+### 6.2 `POST /v1/coupons/validate`
+- **Auth**: optional.
+- **Description**: Validate a coupon against an amount (and optionally package).
+- **Headers**:
+  - `Content-Type: application/json`
+- **Body**:
+  - `code` (string, required)
+  - `amount` (number ≥ 0, required)
+  - `packageId` (string, optional)
+- **Response**:
+  - `200 { success: boolean, data: { valid: boolean, ... } }` (service-defined details)
+
+### 6.3 Admin Coupon Management
 
 #### `POST /v1/coupons`
 - **Auth**: admin.
@@ -194,9 +218,35 @@ These routes accept **raw JSON** (`express.raw({ type: 'application/json' })`) a
 - **Body**:
   - Raw Stripe event; used to reconcile payment, update subscriptions/invoices, emit Kafka events.
 
+### 7.3 `POST /v1/webhooks/shiprocket`
+- **Description**: Shiprocket webhook (logistics/shipping events).
+- **Headers**:
+  - Provider signature header(s) (implementation-specific).
+- **Body**:
+  - Raw Shiprocket event payload; used to reconcile shipment/delivery status (service-defined).
+- **Responses**:
+  - `200 { success: true }` on accepted event.
+  - `400` / `401` on invalid signature/payload.
+
 ---
 
-## 8. Common Headers & Errors
+## 8. Admin Webhook Operations (`/v1/admin/webhooks/*`)
+
+These are admin-only and used for debugging/replaying webhook deliveries.
+
+### 8.1 `GET /v1/admin/webhooks/logs`
+- **Auth**: admin.
+- **Description**: List webhook delivery logs (filters/pagination service-defined).
+
+### 8.2 `POST /v1/admin/webhooks/replay`
+- **Auth**: admin.
+- **Description**: Replay a webhook delivery.
+- **Body**:
+  - Service-defined (typically includes a log/event id).
+
+---
+
+## 9. Common Headers & Errors
 
 - **Headers**:
   - `Authorization: Bearer <accessToken>` required for `/subscriptions`, `/payments`, `/invoices`, `/refunds` (and for admin actions).

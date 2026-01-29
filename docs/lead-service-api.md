@@ -170,4 +170,24 @@ Both respond with `200 { ...updated lead... }` or `404` if lead not found.
 - **Errors** (all endpoints):
   - `{ error: { code: string, message: string, details?: any, traceId: string } }`.
 
+---
+
+## 8. Internal Delivery (`/internal/v1/leads/deliver`)
+
+Internal-only endpoint used for service-to-service lead delivery to partner CRMs.
+
+### 8.1 `POST /internal/v1/leads/deliver`
+- **Auth**: internal (`internalAuth`).
+- **Headers**:
+  - `X-Internal-Token: <INTERNAL_API_TOKEN>` (required)
+  - `Content-Type: application/json`
+- **Body**:
+  - `leadId` (string, required)
+  - `partnerId` (string, required)
+  - `attempt` (number, optional, default `1`)
+  - `metadata` (object, optional): forwarded to CRM webhook (service-defined)
+- **Responses**:
+  - `200 { delivered: boolean, attempt: number, response: any }`
+  - `400 { success: false, error: 'leadId and partnerId required' }`
+
 

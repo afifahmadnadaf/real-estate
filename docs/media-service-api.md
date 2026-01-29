@@ -78,6 +78,10 @@ Underlying service mounts admin endpoints under `/v1/media/admin/*`, and the gat
 ### 5.1 `POST /v1/media/admin/{id}/reprocess`
 - **Description**: Re-run media processing (thumbnails/transcodes) for a specific media.
 
+### 5.1b `POST /v1/media/{id}/reprocess`
+- **Description**: Backward-compatible admin reprocess endpoint (admin role required).
+- **Auth**: bearer required + `ADMIN` role (service also checks role).
+
 ### 5.2 `GET /v1/media/admin/failed`
 - **Description**: List failed media processing jobs for troubleshooting/retry.
 

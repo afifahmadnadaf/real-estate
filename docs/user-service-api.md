@@ -11,6 +11,12 @@
 
 ## 1. Authentication & Sessions
 
+### 1.0 `GET /v1/auth`
+- **Description**: Auth service index/discovery endpoint (useful for smoke tests).
+- **Headers**: none required.
+- **Responses**:
+  - `200`: `{ success: true, data: { endpoints: string[] } }` (may be empty in local/dev).
+
 ### 1.1 `POST /v1/auth/otp/request`
 - **Description**: Request OTP for login/registration/password reset.
 - **Headers**: none required.

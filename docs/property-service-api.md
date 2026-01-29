@@ -202,7 +202,102 @@ All require auth; admin vs owner permissions enforced in service.
 
 ---
 
-## 7. Common Headers & Errors
+## 7. Projects (`/v1/projects`)
+
+These endpoints manage **project listings** (builder/agent org managed). All routes require bearer authentication.
+
+### 7.1 `POST /v1/projects`
+- **Description**: Create a new project.
+- **Body** (service-defined; accepted top-level fields include):
+  - `name` (string, required)
+  - `slug` (string, optional)
+  - `overview`, `pricing`, `location`, `amenities`, `specifications`, `developer`, `media`, `verification`, `premium` (objects, optional)
+  - `configurations` (array, optional)
+- **Response**:
+  - `201 { success: true, data: Project }`
+
+### 7.2 `GET /v1/projects`
+- **Description**: List projects for the current org.
+- **Query**:
+  - `status` (string, optional)
+  - `limit` (int, optional, default 50)
+  - `offset` (int, optional, default 0)
+- **Response**:
+  - `200 { success: true, data: Project[] }`
+
+### 7.3 `GET /v1/projects/{projectId}`
+### 7.4 `PATCH /v1/projects/{projectId}`
+### 7.5 `DELETE /v1/projects/{projectId}`
+- **Description**: Fetch/update/archive a project.
+- **Response**:
+  - `200 { success: true, data: Project }`
+
+### 7.6 Lifecycle
+
+- `POST /v1/projects/{projectId}/submit`
+- `POST /v1/projects/{projectId}/publish`
+
+Both respond with `200 { success: true, data: Project }`.
+
+### 7.7 Project Media & Brochure
+
+#### `POST /v1/projects/{projectId}/media`
+- **Body**:
+  - `mediaId` (string, required)
+  - `url` (string, required)
+  - `kind` (string, optional): `images | videos | floorPlans`
+  - Optional fields by kind:
+    - images: `tag?`, `order?`
+    - videos: `title?`
+    - floorPlans: `config?`
+- **Response**:
+  - `201 { success: true, data: MediaItem }`
+
+#### `PATCH /v1/projects/{projectId}/media/order`
+- **Body**:
+  - `kind` (string, optional): `images | videos | floorPlans`
+  - `order` (string[], required): ordered list of mediaIds
+- **Response**:
+  - `200 { success: true, data: MediaItem[] }`
+
+#### `DELETE /v1/projects/{projectId}/media/{mediaId}`
+- **Query**:
+  - `kind` (string, optional): `images | videos | floorPlans`
+- **Response**:
+  - `200 { success: true, data: { success: true } }`
+
+#### `POST /v1/projects/{projectId}/brochure`
+- **Body**:
+  - `url` (string, required)
+- **Response**:
+  - `200 { success: true, data: Project }`
+
+### 7.8 Inventory Units
+
+- `POST /v1/projects/{projectId}/inventory/units`
+  - **Description**: Add a unit to the project inventory.
+  - **Body**: service-defined; supports fields like `title`, `configuration`, `bedrooms`, `bathrooms`, `carpetArea`, `builtUpArea`, `price`, `floor`, `tower`, `status`, `metadata`.
+  - **Response**: `201 { success: true, data: Unit }`
+- `GET /v1/projects/{projectId}/inventory/units`
+  - **Response**: `200 { success: true, data: Unit[] }`
+- `GET /v1/projects/{projectId}/inventory/units/{unitId}`
+- `PATCH /v1/projects/{projectId}/inventory/units/{unitId}`
+- `DELETE /v1/projects/{projectId}/inventory/units/{unitId}`
+  - **Response**: `200 { success: true, data: Unit | { success: true } }`
+
+### 7.9 Inventory Import Jobs
+
+- `POST /v1/projects/{projectId}/inventory/import`
+  - **Description**: Start a bulk inventory import job.
+  - **Body**: service-defined; stored as bulkJob input.
+  - **Response**: `201 { success: true, data: BulkJob }`
+- `GET /v1/projects/{projectId}/inventory/import/{jobId}`
+  - **Description**: Get bulk job status/result.
+  - **Response**: `200 { success: true, data: BulkJob }`
+
+---
+
+## 8. Common Headers & Errors
 
 - **Request headers**:
   - `Authorization: Bearer <accessToken>` (required for non-public routes).
